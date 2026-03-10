@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniWorker - 您的 24/7 全能数字员工服务商</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 自定义平滑滚动和选中高亮 */
+        html { scroll-behavior: smooth; }
+        ::selection { background-color: #a7f3d0; color: #064e3b; }
+        .hidden-demo { display: none !important; }
+    </style>
+</head>
+<body class="min-h-screen bg-slate-50 font-sans text-slate-900 selection:bg-emerald-200">
+
+    <header class="fixed top-0 w-full bg-white/90 backdrop-blur-md border-b border-slate-200 z-50">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between text-left">
+            <div class="flex items-center gap-2 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <div class="w-8 h-8 bg-slate-900 rounded flex items-center justify-center">
+                    <svg class="text-white w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+                </div>
+                <span class="text-xl font-extrabold tracking-tight text-slate-900">OmniWorker<span class="text-emerald-600">.</span></span>
+            </div>
+            
+            <nav class="hidden lg:flex items-center gap-6 xl:gap-8 font-bold text-[13px] tracking-wider text-slate-700 uppercase">
+    <a href="index.html" class="hover:text-slate-900 transition">Home</a>
+    <a href="services.html" class="hover:text-slate-900 transition">Services</a>
+    <a href="products.html" class="hover:text-slate-900 transition">Products</a>
+    <a href="pricing.html" class="hover:text-slate-900 transition">Pricing</a>
+    <a href="promotions.html" class="text-blue-500 hover:text-blue-600 transition">Promotions</a>
+    <a href="testimonials.html" class="hover:text-slate-900 transition">Testimonials</a>
+    <a href="gallery.html" class="hover:text-slate-900 transition">Gallery</a>
+    <a href="blog.html" class="hover:text-slate-900 transition">Blog</a>
+</nav>
+
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-1 text-slate-500 bg-slate-100 px-2 py-1 rounded-md border border-slate-200">
+                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+                    <select id="lang-select" class="bg-transparent text-sm font-bold outline-none cursor-pointer">
+                        <option value="zh">中文</option>
+                        <option value="en">EN</option>
+                        <option value="ja">日本語</option>
+                    </select>
+                </div>
+                <button data-i18n="nav.getQuote" class="bg-slate-900 text-white px-6 py-2.5 rounded-md font-semibold hover:bg-slate-800 transition shadow-lg shadow-slate-900/20">
+                    获取报价
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="pt-40 pb-20 px-6 bg-slate-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-semibold mb-6 border border-emerald-500/30">
+                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                <span data-i18n="hero.tag">专为新加坡中小企业打造的 Agentic AI</span>
+            </div>
+            <h1 data-i18n="hero.title" class="text-5xl md:text-6xl font-extrabold leading-tight mb-6">您的 24/7 全能数字员工服务商</h1>
+            <p data-i18n="hero.subtitle" class="text-xl text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed">告别传统软件外包的漫长开发与死板逻辑。我们交付的是开箱即用的业务专家，深度注入行业SOP，明早8点立刻上线接客。</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button class="bg-emerald-600 text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-emerald-500 transition shadow-lg shadow-emerald-600/30 flex items-center justify-center gap-2">
+                    <span data-i18n="hero.btnTrial">免费测试 7 天</span>
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
+                <button data-i18n="hero.btnCase" class="bg-slate-800 text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-slate-700 border border-slate-700 transition">查看行业案例</button>
+            </div>
+            
+            <div class="mt-16 flex flex-wrap justify-center gap-8 text-slate-400 text-sm font-medium">
+                <div class="flex items-center gap-2"><svg class="w-4 h-4 text-slate-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> <span data-i18n="hero.trust1">PDPA Compliant</span></div>
+                <div class="flex items-center gap-2"><svg class="w-4 h-4 text-slate-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg> <span data-i18n="hero.trust2">100% 数据本地化部署</span></div>
+                <div class="flex items-center gap-2"><svg class="w-4 h-4 text-slate-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg> <span data-i18n="hero.trust3">深度理解本地语境</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="comparison" class="py-24 px-6 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 data-i18n="compare.title" class="text-3xl font-extrabold text-slate-900 mb-4">为什么“免费一键部署”是企业最昂贵的陷阱？</h2>
+                <p data-i18n="compare.subtitle" class="text-lg text-slate-600">工具需要人来伺候，而 OmniWorker 直接为您创造利润。</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 text-left">
+                <div class="bg-gray-50 border border-gray-200 rounded-2xl p-10 flex flex-col grayscale opacity-80 hover:grayscale-0 transition duration-500">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center text-left">
+                            <svg class="w-6 h-6 text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="16" height="16" x="4" y="4" rx="2" ry="2"/><rect width="6" height="6" x="9" y="9" rx="1" ry="1"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>
+                        </div>
+                        <h3 data-i18n="compare.badTitle" class="text-2xl font-bold text-gray-600">传统软件外包 / 开源大模型</h3>
+                    </div>
+                    <ul class="space-y-4 text-gray-500 font-medium flex-grow">
+                        <li class="flex items-start gap-3"><svg class="w-6 h-6 shrink-0 mt-0.5 text-rose-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg> <span data-i18n="compare.bad1">交付毫无业务逻辑的空白系统。</span></li>
+                        <li class="flex items-start gap-3"><svg class="w-6 h-6 shrink-0 mt-0.5 text-rose-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg> <span data-i18n="compare.bad2">需要您亲自懂代码、配置API、画流程图。</span></li>
+                        <li class="flex items-start gap-3"><svg class="w-6 h-6 shrink-0 mt-0.5 text-rose-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg> <span data-i18n="compare.bad3">隐形成本极高，最终变成老板自己的额外工作。</span></li>
+                        <li class="flex items-start gap-3"><svg class="w-6 h-6 shrink-0 mt-0.5 text-rose-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg> <span data-i18n="compare.bad4">遇到退换货纠纷只会说“对不起，我不明白”。</span></li>
+                    </ul>
+                </div>
+
+                <div class="bg-white border-2 border-slate-900 shadow-2xl shadow-slate-900/10 rounded-2xl p-10 flex flex-col relative overflow-hidden ring-4 ring-slate-900/5">
+                    <div data-i18n="compare.goodBadge" class="absolute top-0 right-0 bg-slate-900 text-white px-4 py-1 rounded-bl-xl font-bold text-sm">The Winner</div>
+                    <div class="flex items-center gap-4 mb-6 text-left">
+                        <div class="w-12 h-12 bg-slate-900 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+                        </div>
+                        <h3 data-i18n="compare.goodTitle" class="text-2xl font-bold text-slate-900">OmniWorker 全能数字员工</h3>
+                    </div>
+                    <ul class="space-y-4 text-slate-700 font-medium flex-grow">
+                        <li class="flex items-start gap-3"><svg class="w-6 h-6 text-emerald-600 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span data-i18n="compare.good1">交付开箱即用的业务专家，买来即用。</span></li>
+                        <li class="flex items-start gap-3"><svg class="w-6 h-6 text-emerald-600 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span data-i18n="compare.good2">深度注入行业独家 SOP (电商、冷气、物流等)。</span></li>
+                        <li class="flex items-start gap-3"><svg class="w-6 h-6 text-emerald-600 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span data-i18n="compare.good3">懂销售心理学，能自动安抚客户并挽单。</span></li>
+                        <li class="flex items-start gap-3"><svg class="w-6 h-6 text-emerald-600 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span data-i18n="compare.good4">插电即上线，7x24小时无情绪稳定接客。</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo" class="py-24 px-6 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 data-i18n="demo.title" class="text-3xl font-extrabold text-slate-900 mb-4">不仅懂代码，更懂本地市场的“人情世故”</h2>
+                <p data-i18n="demo.subtitle" class="text-lg text-slate-600">观看 OmniWorker 如何在凌晨 2 点完美化解本地客户的愤怒退单。</p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden flex flex-col md:flex-row text-left">
+                <div class="bg-slate-900 text-white p-10 md:w-2/5 flex flex-col justify-center">
+                    <h4 data-i18n="demo.sceneTitle" class="text-xl font-bold mb-4">场景：电商物流延迟客诉</h4>
+                    <p data-i18n="demo.sceneDesc" class="text-slate-300 mb-6">传统机器人的回答通常是冰冷的退款链接。看看我们的数字员工如何用同理心和具体行动来挽回订单。</p>
+                    <button id="demo-btn" onclick="triggerDemo()" class="bg-emerald-600 hover:bg-emerald-500 disabled:bg-slate-700 text-white py-3 px-6 rounded font-bold transition flex items-center justify-center gap-2">
+                        ▶ 模拟接收客户消息
+                    </button>
+                </div>
+                <div class="p-8 md:w-3/5 bg-slate-50 relative min-h-[420px]">
+                    <div class="space-y-6">
+                        
+                        <div id="demo-user-msg" class="flex gap-4 opacity-0 transition-opacity duration-500">
+                            <div class="w-10 h-10 rounded-full bg-orange-200 flex items-center justify-center shrink-0">
+                                <span class="font-bold text-orange-700 text-xs uppercase">User</span>
+                            </div>
+                            <div class="bg-white p-4 rounded-2xl rounded-tl-none shadow-sm border border-slate-200 max-w-[85%]">
+                                <p data-i18n="demo.msgUser" class="text-slate-800 font-medium italic">老板，能帮我查下订单吗？等了这么久，物流显示已签收但我什么都没收到。这样的话我要立刻退款！</p>
+                            </div>
+                        </div>
+
+                        <div id="demo-ai-thinking" class="flex gap-4 animate-pulse hidden-demo">
+                            <div class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center shrink-0">
+                                <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+                            </div>
+                            <div class="bg-slate-200 p-4 rounded-2xl rounded-tr-none w-24 h-10"></div>
+                        </div>
+
+                        <div id="demo-ai-reply" class="flex gap-4 flex-row-reverse opacity-0 transform translate-y-4 transition-all duration-500 hidden-demo">
+                            <div class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center shrink-0">
+                                <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+                            </div>
+                            <div class="bg-emerald-50 p-5 rounded-2xl rounded-tr-none shadow-sm border border-emerald-200 max-w-[90%] relative">
+                                <div class="space-y-3">
+                                    <p data-i18n="demo.msgAi1" class="text-slate-800 leading-relaxed">您好！我完全理解您的焦虑，非常抱歉给您带来了困扰。🙏</p>
+                                    <p data-i18n="demo.msgAi2" class="text-slate-800 leading-relaxed">我刚刚跟 Ninja Van 后台核实了。司机提前标记了送达，但会在今晚8点前送到您家门口。我已经在您的账户里补偿了一张 $5 的代金券表示歉意。</p>
+                                    <p data-i18n="demo.msgAi3" class="text-slate-800 font-bold">请放心，如果今晚还没收到，我会立刻为您处理全额退款。您看行吗？</p>
+                                </div>
+                                <div class="mt-4 flex items-center gap-1.5 text-xs font-black text-emerald-700 bg-emerald-100 px-2.5 py-1.5 rounded-full inline-flex">
+                                    <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+                                    <span data-i18n="demo.saveTag">成功挽回订单 $120.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="roi" class="py-24 px-6 bg-white border-t border-slate-100">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 data-i18n="roi.title" class="text-3xl font-extrabold text-slate-900 mb-4">拒绝黑箱，用财务报表的方式看利润</h2>
+                <p data-i18n="roi.subtitle" class="text-lg text-slate-600">透明的 Tokens 计价与看得见的 ROI。拖动滑块，看看您每个月在流失多少利润。</p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-12 text-left">
+                <div class="lg:col-span-7 bg-slate-50 border border-slate-200 rounded-2xl p-8 lg:p-12">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-8 flex items-center gap-2">
+                        <svg class="text-emerald-600 w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+                        <span data-i18n="roi.calcTitle">ROI 利润计算器</span>
+                    </h3>
+                    
+                    <div class="mb-12">
+                        <label data-i18n="roi.sliderLabel" class="block text-sm font-bold text-slate-700 mb-4">您目前雇佣了多少名常规客服/业务员？ (平均薪资估值: $3,500 SGD/人)</label>
+                        <input id="emp-slider" type="range" min="1" max="20" value="3" class="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-slate-900" oninput="calculateROI()">
+                        <div class="mt-4 flex justify-between text-slate-500 font-medium">
+                            <span>1 <span data-i18n="roi.unit">人</span></span>
+                            <span class="text-xl font-black text-slate-900"><span id="emp-count">3</span> <span data-i18n="roi.unit">人</span></span>
+                            <span>20 <span data-i18n="roi.unit">人</span></span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center p-4 bg-white rounded-lg border border-slate-100">
+                            <span data-i18n="roi.humanCostLabel" class="text-slate-500 font-medium">当前每月人力总成本</span>
+                            <span id="human-cost" class="text-xl font-bold text-slate-400 line-through">$10,500 SGD</span>
+                        </div>
+                        <div class="flex justify-between items-center p-4 bg-slate-900 rounded-lg text-white shadow-lg">
+                            <span data-i18n="roi.aiCostLabel" class="font-medium">OmniWorker 替代方案预估</span>
+                            <span class="text-xl font-bold"><span id="ai-cost">$1,950 SGD</span> / <span data-i18n="roi.monthly">月</span></span>
+                        </div>
+                        <div class="flex justify-between items-center p-6 bg-emerald-50 border border-emerald-200 rounded-lg mt-4">
+                            <div>
+                                <span data-i18n="roi.saveNet" class="block text-emerald-800 font-bold mb-1">您每月立即节省下来的净利润</span>
+                                <span data-i18n="roi.nonStop" class="text-sm text-emerald-600 font-medium">无请假、无社保、24小时无休</span>
+                            </div>
+                            <span id="savings" class="text-4xl font-black text-emerald-600">+$8,550</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 bg-white border border-slate-200 rounded-2xl p-8 lg:p-10 shadow-xl">
+                    <h3 data-i18n="tokens.title" class="text-xl font-bold text-slate-900 mb-2">多大模型 Tokens 引擎库</h3>
+                    <p data-i18n="tokens.modelDesc" class="text-sm text-slate-500 mb-8">像选空调品牌一样选择引擎，丰俭由人。不被单一厂商绑架。</p>
+                    
+                    <div id="models-container" class="space-y-4 mb-8">
+                        </div>
+
+                    <button data-i18n="tokens.btn" class="w-full bg-slate-900 text-white py-4 rounded-lg font-bold text-lg hover:bg-slate-800 transition shadow-lg shadow-slate-900/20">
+                        获取完整部署方案与报价
+                    </button>
+                    
+                    <div class="mt-6 flex justify-center gap-4">
+                        <svg class="w-5 h-5 text-slate-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+                        <span data-i18n="tokens.security" class="text-xs font-medium text-slate-400">所有对话均经过 256-bit 银行级加密</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-slate-400 py-12 px-6 border-t border-slate-800 text-sm">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+                <span data-i18n="footer.company" class="font-bold text-white text-lg">OmniWorker Pte Ltd</span>
+            </div>
+            <div class="flex gap-6 font-medium">
+                <a href="#" data-i18n="footer.privacy" class="hover:text-white transition">隐私政策 (PDPA)</a>
+                <a href="#" data-i18n="footer.terms" class="hover:text-white transition">服务条款</a>
+                <a href="#" data-i18n="footer.policy" class="hover:text-white transition">Tokens 透明政策</a>
+            </div>
+            <div data-i18n="footer.copy">© 2026 OmniWorker. All rights reserved in Singapore.</div>
+        </div>
+    </footer>
+
+    <script>
+        // --- 1. 语言包与状态 ---
+        const translations = {
+          zh: {
+            nav: { pain: "痛点对比", demo: "实战演示", pricing: "ROI 与 定价", getQuote: "获取报价" },
+            hero: { tag: "专为新加坡中小企业打造的 Agentic AI", title: "您的 24/7 全能数字员工服务商", subtitle: "告别传统软件外包的漫长开发与死板逻辑。我们交付的是开箱即用的业务专家，深度注入行业SOP，明早8点立刻上线接客。", btnTrial: "免费测试 7 天", btnCase: "查看行业案例", trust1: "PDPA Compliant", trust2: "100% 数据本地化部署", trust3: "深度理解本地语境" },
+            compare: { title: "为什么“免费一键部署”是企业最昂贵的陷阱？", subtitle: "工具需要人来伺候，而 OmniWorker 直接为您创造利润。", badTitle: "传统软件外包 / 开源大模型", bad1: "交付毫无业务逻辑的空白系统。", bad2: "需要您亲自懂代码、配置API、画流程图。", bad3: "隐形成本极高，最终变成老板自己的额外工作。", bad4: "遇到退换货纠纷只会说“对不起，我不明白”。", goodBadge: "The Winner", goodTitle: "OmniWorker 全能数字员工", good1: "交付开箱即用的业务专家，买来即用。", good2: "深度注入行业独家 SOP (电商、冷气、物流等)。", good3: "懂销售心理学，能自动安抚客户并挽单。", good4: "插电即上线，7x24小时无情绪稳定接客。" },
+            demo: { title: "不仅懂代码，更懂本地市场的“人情世故”", subtitle: "观看 OmniWorker 如何在凌晨 2 点完美化解本地客户的愤怒退单。", sceneTitle: "场景：电商物流延迟客诉", sceneDesc: "传统机器人的回答通常是冰冷的退款链接。看看我们的数字员工如何用同理心和具体行动来挽回订单。", btn0: "▶ 模拟接收客户消息", btn1: "AI 思考中...", btn2: "交互完成", msgUser: "老板，能帮我查下订单吗？等了这么久，物流显示已签收但我什么都没收到。这样的话我要立刻退款！", msgAi1: "您好！我完全理解您的焦虑，非常抱歉给您带来了困扰。🙏", msgAi2: "我刚刚跟 Ninja Van 后台核实了。司机提前标记了送达，但会在今晚8点前送到您家门口。我已经在您的账户里补偿了一张 $5 的代金券表示歉意。", msgAi3: "请放心，如果今晚还没收到，我会立刻为您处理全额退款。您看行吗？", saveTag: "成功挽回订单 $120.00" },
+            roi: { title: "拒绝黑箱，用财务报表的方式看利润", subtitle: "透明的 Tokens 计价与看得见的 ROI。拖动滑块，看看您每个月在流失多少利润。", calcTitle: "ROI 利润计算器", sliderLabel: "您目前雇佣了多少名常规客服/业务员？ (平均薪资估值: $3,500 SGD/人)", unit: "人", humanCostLabel: "当前每月人力总成本", aiCostLabel: "OmniWorker 替代方案预估", monthly: "月", saveNet: "您每月立即节省下来的净利润", nonStop: "无请假、无社保、24小时无休" },
+            tokens: { title: "多大模型 Tokens 引擎库", modelDesc: "像选空调品牌一样选择引擎，丰俭由人。不被单一厂商绑架。", in: "入", out: "出", btn: "获取完整部署方案与报价", security: "所有对话均经过 256-bit 银行级加密" },
+            footer: { company: "OmniWorker Pte Ltd", privacy: "隐私政策 (PDPA)", terms: "服务条款", policy: "Tokens 透明政策", copy: "© 2026 OmniWorker. All rights reserved in Singapore." }
+          },
+          en: {
+            nav: { pain: "Pain Points", demo: "Live Demo", pricing: "Pricing & ROI", getQuote: "Get Quote" },
+            hero: { tag: "Agentic AI Built for SG SMEs", title: "Your 24/7 All-in-One Digital Worker", subtitle: "Skip the endless software dev cycle. We deliver ready-to-work AI agents infused with your business SOPs. Online tomorrow at 8 AM.", btnTrial: "Free 7-Day Trial", btnCase: "View Industry Cases", trust1: "PDPA Compliant", trust2: "100% Local Data Deployment", trust3: "Native Singlish Understanding" },
+            compare: { title: "Why 'Free 1-Click Deploy' is your most expensive trap?", subtitle: "Tools require babysitting. OmniWorker directly generates profit.", badTitle: "Traditional Outsourcing / LLMs", bad1: "Delivers a blank system with zero business logic.", bad2: "Requires you to write code and draw workflows.", bad3: "High hidden costs; becomes an extra job for you.", bad4: "Only says 'Sorry, I don't understand' during disputes.", goodBadge: "The Winner", goodTitle: "OmniWorker Digital Employee", good1: "Ready-to-use business expert from day one.", good2: "Deeply injected with exclusive industry SOPs.", good3: "Understands sales psychology to soothe clients.", good4: "Plug-and-play, handles clients 24/7 without burnout." },
+            demo: { title: "Masters SG Nuance", subtitle: "Watch how OmniWorker perfectly defuses an angry local customer at 2 AM.", sceneTitle: "Scenario: E-commerce Logistics Delay", sceneDesc: "See how our digital employee uses empathy and action to save the order.", btn0: "▶ Simulate Singlish Message", btn1: "AI Thinking...", btn2: "Interaction Complete", msgUser: "Eh boss, can check my order anot? Waited so long leh, tracking say delivered but I never get anything. If liddat I want refund now!", msgAi1: "Hi there! I completely understand your frustration. So sorry for the confusion leh. 🙏", msgAi2: "I just checked our backend with Ninja Van. The driver marked it delivered early but will drop it at your doorstep before 8 PM tonight. I've added a $5 voucher to your account for the trouble.", msgAi3: "Please don't worry, if it's not there by tonight, I will process the full refund for you immediately. Can?", saveTag: "Saved $120.00 order" },
+            roi: { title: "Pure Financial ROI", subtitle: "Slide to see how much profit you're losing every month.", calcTitle: "ROI Profit Calculator", sliderLabel: "Number of staff? ($3,500 SGD/pax)", unit: "Pax", humanCostLabel: "Current Monthly Human Cost", aiCostLabel: "OmniWorker Alternative Estimate", monthly: "mo", saveNet: "Net Profit You Save Monthly", nonStop: "No leaves, no CPF, 24/7 non-stop" },
+            tokens: { title: "Multi-Model Engine Library", modelDesc: "Select the best engine for your budget. No vendor lock-in.", in: "In", out: "Out", btn: "Get Quote & Deployment Plan", security: "256-bit bank-level encryption" },
+            footer: { company: "OmniWorker Pte Ltd", privacy: "Privacy Policy", terms: "Terms", policy: "Tokens Policy", copy: "© 2026 OmniWorker. All rights reserved." }
+          },
+          ja: {
+            nav: { pain: "課題の比較", demo: "デモを見る", pricing: "料金とROI", getQuote: "見積もり取得" },
+            hero: { tag: "シンガポール中小企業向け Agentic AI", title: "24時間365日稼働のデジタルワーカー", subtitle: "終わりのないソフトウェア開発サイクルからの脱却。お客様の業務SOPを組み込んだ、即戦力のAIエージェントを提供します。明日の朝8時には稼働開始。", btnTrial: "7日間無料トライアル", btnCase: "導入事例を見る", trust1: "PDPA 準拠", trust2: "100% ローカルデータ展開", trust3: "現地のニュアンスを深く理解" },
+            compare: { title: "なぜ「無料ワンクリック展開」が最も高くつく罠なのか？", subtitle: "ツールは世話が必要ですが、OmniWorkerは直接利益を生み出します。", badTitle: "従来の外注 / オープンソースLLM", bad1: "業務ロジックが全くない空のシステムを納品。", bad2: "コードの理解、API設定、ワークフロー作成を自律的に行う必要あり。", bad3: "隠れたコストが膨大で、最終的に経営者の追加業務になる。", bad4: "返金トラブルの際は理解できませんとしか言わない。", goodBadge: "勝者", goodTitle: "OmniWorker 全能デジタルワーカー", good1: "初日から即戦力となるビジネスの専門家を納品。", good2: "業界独自のSOP（EC、設備保守など）を深く注入。", good3: "営業心理学を理解し、顧客をなだめて注文を救済する。", good4: "感情のブレなく24時間365日、安定した接客。" },
+            demo: { title: "現地の「人間関係」も理解", subtitle: "午前2時の怒る現地顧客のクレームを、OmniWorkerがどう解決するかをご覧ください。", sceneTitle: "シナリオ：ECサイトの配送遅延クレーム", sceneDesc: "従来のボットは冷たいリンクを渡すだけです。当社のデジタルワーカーが注文を救うかをご覧ください。", btn0: "▶ 顧客メッセージをシミュレート", btn1: "AI 思考中...", btn2: "対話完了", msgUser: "注文の確認をお願いします。配達完了になっているのに届いていません。今すぐ返金してください！", msgAi1: "こんにちは！ご不満はよくわかります。ご不便をおかけして本当に申し訳ありません。🙏", msgAi2: "配送業者に確認したところ、ドライバーが誤って早く完了処理をしてしまいましたが、今夜8時までにはお届けできます。お詫びに5ドルのクーポンを発行しました。", msgAi3: "もし今夜届かなければ、すぐに全額返金いたします。いかがでしょうか？", saveTag: "$120.00の注文を救済成功" },
+            roi: { title: "純粋なROI", subtitle: "スライダーを動かして、毎月どれだけの利益を逃しているか確認してください。", calcTitle: "ROI 利益計算機", sliderLabel: "雇用人数？（平均給与 $3,500 SGD/月）", unit: "名", humanCostLabel: "現在の人的コスト", aiCostLabel: "OmniWorker 推定コスト", monthly: "月", saveNet: "毎月節約できる純利益", nonStop: "24時間無休、休暇なし" },
+            tokens: { title: "モデルライブラリ", modelDesc: "予算に合わせて最適なエンジンを選択。タスクに応じていつでも切り替え可能です。", in: "入", out: "出", btn: "導入プランと見積もりを取得", security: "256ビットの銀行レベルの暗号化" },
+            footer: { company: "OmniWorker Pte Ltd", privacy: "プライバシーポリシー", terms: "利用規約", policy: "トークンポリシー", copy: "© 2026 OmniWorker. All rights reserved." }
+          }
+        };
+
+        const tokenModels = [
+            { id: 'claude', name: 'Claude 3.5 Sonnet', priceIn: 3.00, priceOut: 15.00 },
+            { id: 'gemini', name: 'Gemini 2.5 Pro', priceIn: 1.25, priceOut: 10.00 },
+            { id: 'deepseek', name: 'DeepSeek V3', priceIn: 0.28, priceOut: 0.42 },
+        ];
+
+        let currentLng = 'zh';
+        let selectedModelId = 'claude';
+        let demoState = 0; // 0: init, 1: thinking, 2: done
+
+        // --- 2. 核心功能函数 ---
+        function t(path) {
+            const keys = path.split('.');
+            let current = translations[currentLng];
+            for (const key of keys) {
+                if (!current || !current[key]) return path;
+                current = current[key];
+            }
+            return current;
+        }
+
+        function updateTranslations() {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                el.innerText = t(key);
+            });
+            updateDemoBtnText();
+            renderModels(); // 重新渲染模型列表以更新多语言的"入"和"出"
+        }
+
+        function calculateROI() {
+            const count = parseInt(document.getElementById('emp-slider').value);
+            const humanCost = count * 3500;
+            const aiCost = 1500 + (count * 150);
+            const savings = humanCost - aiCost;
+            
+            document.getElementById('emp-count').innerText = count;
+            document.getElementById('human-cost').innerText = `$${humanCost.toLocaleString()} SGD`;
+            document.getElementById('ai-cost').innerText = `$${aiCost.toLocaleString()} SGD`;
+            document.getElementById('savings').innerText = `+$${savings.toLocaleString()}`;
+        }
+
+        // --- 3. Demo 交互逻辑 ---
+        function updateDemoBtnText() {
+            const btn = document.getElementById('demo-btn');
+            if(demoState === 0) btn.innerText = t('demo.btn0');
+            else if(demoState === 1) btn.innerText = t('demo.btn1');
+            else btn.innerText = t('demo.btn2');
+        }
+
+        function triggerDemo() {
+            if (demoState !== 0) return;
+            
+            const btn = document.getElementById('demo-btn');
+            const step1 = document.getElementById('demo-user-msg');
+            const step2 = document.getElementById('demo-ai-thinking');
+            const step3 = document.getElementById('demo-ai-reply');
+
+            demoState = 1;
+            btn.disabled = true;
+            btn.classList.add('bg-slate-700');
+            btn.classList.remove('bg-emerald-600', 'hover:bg-emerald-500');
+            updateDemoBtnText();
+
+            // 显示用户消息
+            step1.classList.remove('opacity-0');
+            step1.classList.add('opacity-100');
+            
+            // 显示思考动画
+            setTimeout(() => {
+                step2.classList.remove('hidden-demo');
+            }, 300);
+
+            // 显示最终回复
+            setTimeout(() => {
+                demoState = 2;
+                updateDemoBtnText();
+                step2.classList.add('hidden-demo');
+                step3.classList.remove('hidden-demo', 'opacity-0', 'translate-y-4');
+                step3.classList.add('opacity-100', 'translate-y-0');
+            }, 1800);
+        }
+
+        // --- 4. Tokens 模型选择渲染 ---
+        function selectModel(id) {
+            selectedModelId = id;
+            renderModels();
+        }
+
+        function renderModels() {
+            const container = document.getElementById('models-container');
+            container.innerHTML = '';
+            
+            tokenModels.forEach(model => {
+                const isSelected = model.id === selectedModelId;
+                const borderClass = isSelected ? 'border-slate-900 bg-slate-50' : 'border-slate-100 hover:border-slate-300';
+                
+                const html = `
+                <div onclick="selectModel('${model.id}')" class="cursor-pointer p-4 rounded-xl border-2 transition-all ${borderClass}">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="font-bold text-slate-900">${model.name}</span>
+                        ${isSelected ? '<svg class="w-5 h-5 text-slate-900" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>' : ''}
+                    </div>
+                    <div class="flex gap-4 text-xs font-semibold">
+                        <span class="bg-slate-200 text-slate-700 px-2 py-1 rounded">${t('tokens.in')}: $${model.priceIn.toFixed(2)}/1M</span>
+                        <span class="bg-slate-200 text-slate-700 px-2 py-1 rounded">${t('tokens.out')}: $${model.priceOut.toFixed(2)}/1M</span>
+                    </div>
+                </div>`;
+                container.innerHTML += html;
+            });
+        }
+
+        // --- 初始化绑定 ---
+        document.getElementById('lang-select').addEventListener('change', (e) => {
+            currentLng = e.target.value;
+            updateTranslations();
+        });
+
+        window.onload = () => {
+            updateTranslations();
+            calculateROI();
+            renderModels();
+        };
+    </script>
+</body>
+</html>
