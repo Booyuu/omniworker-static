@@ -6,163 +6,244 @@
     <title>OmniWorker - 您的 24/7 全能数字员工服务商</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* 自定义平滑滚动和选中高亮 */
         html { scroll-behavior: smooth; }
-        ::selection { background-color: #a7f3d0; color: #064e3b; }
+        ::selection { background-color: #059669; color: #ffffff; }
         .hidden-demo { display: none !important; }
+        
+        /* 完美无缝 Logo 墙滚动动画 */
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } 
+        }
+        .animate-scroll {
+            animation: scroll 40s linear infinite;
+            width: max-content;
+        }
+        /* 用户评价滚动较慢 */
+        .animate-scroll-slow {
+            animation: scroll 60s linear infinite;
+            width: max-content;
+        }
+        
+        /* 悬浮按钮与微交互动效 */
+        .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-4px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5); }
+        .glow-text { text-shadow: 0 0 12px rgba(52, 211, 153, 0.8); }
+        
+        /* 全局新加坡背景底纹 (深色模式版) */
+        body.bg-singapore-overlay::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1565623833408-d77e39b88af6?auto=format&fit=crop&q=80'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.15; 
+            mix-blend-mode: screen;
+            filter: grayscale(100%) contrast(150%);
+            z-index: -1;
+            pointer-events: none;
+        }
     </style>
 </head>
-<body class="min-h-screen bg-slate-50 font-sans text-slate-900 selection:bg-emerald-200">
+<body class="min-h-screen font-sans bg-slate-950 text-slate-300 selection:bg-emerald-600 relative bg-singapore-overlay">
 
-    <header class="fixed top-0 w-full bg-white/90 backdrop-blur-md border-b border-slate-200 z-50">
-        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between text-left">
-            <div class="flex items-center gap-2 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-                <div class="w-8 h-8 bg-slate-900 rounded flex items-center justify-center">
-                    <svg class="text-white w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
-                </div>
-                <span class="text-xl font-extrabold tracking-tight text-slate-900">OmniWorker<span class="text-emerald-600">.</span></span>
+    <div class="fixed bottom-6 right-6 z-[100] flex flex-col gap-3">
+        <a href="https://wa.me/6588888888" target="_blank" class="w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg hover-lift group" title="Chat on WhatsApp">
+            <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        </a>
+        <a href="https://t.me/omniworker" target="_blank" class="w-14 h-14 bg-[#0088cc] text-white rounded-full flex items-center justify-center shadow-lg hover-lift group" title="Chat on Telegram">
+            <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.17-.029-.243-.013c-.107.024-1.82.49-5.142 2.267l-1.42.65c-.813.363-1.21.532-1.73.52-.573-.013-1.671-.33-2.486-.6-.863-.283-1.542-.432-1.479-.908.033-.25.39-.508 1.08-.787 4.236-1.84 7.062-3.055 8.479-3.647 4.03-1.688 4.873-1.983 5.42-1.993z"/></svg>
+        </a>
+    </div>
+
+    <header class="fixed top-0 w-full bg-black/90 backdrop-blur-xl border-b border-slate-800 z-50 transition-all duration-300 shadow-xl">
+        <div class="w-full px-6 md:px-10 h-24 md:h-28 flex items-center justify-between text-left">
+            <div class="flex items-center gap-4 cursor-pointer shrink-0 group" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <img src="assets/logo-omniworker.png" alt="OmniWorker Logo" class="h-16 md:h-20 w-auto object-contain group-hover:scale-105 transition-transform duration-300">
+                <span class="text-3xl md:text-4xl font-extrabold tracking-tight text-white hidden sm:block">OmniWorker<span class="text-emerald-500">.</span></span>
             </div>
             
-            <nav class="hidden lg:flex items-center gap-6 xl:gap-8 font-bold text-[13px] tracking-wider text-slate-700 uppercase">
-    <a href="index.html" class="hover:text-slate-900 transition">Home</a>
-    <a href="services.html" class="hover:text-slate-900 transition">Services</a>
-    <a href="products.html" class="hover:text-slate-900 transition">Products</a>
-    <a href="pricing.html" class="hover:text-slate-900 transition">Pricing</a>
-    <a href="promotions.html" class="text-blue-500 hover:text-blue-600 transition">Promotions</a>
-    <a href="testimonials.html" class="hover:text-slate-900 transition">Testimonials</a>
-    <a href="gallery.html" class="hover:text-slate-900 transition">Gallery</a>
-    <a href="blog.html" class="hover:text-slate-900 transition">Blog</a>
-</nav>
+            <nav class="hidden xl:flex items-center gap-8 font-bold text-[15px] tracking-wider text-slate-300 uppercase whitespace-nowrap">
+                <a href="index.html" data-i18n="nav.home" class="text-emerald-400 glow-text transition transform hover:-translate-y-0.5">首页</a>
+                <a href="services.html" data-i18n="nav.services" class="hover:text-white hover:glow-text transition transform hover:-translate-y-0.5">解决方案</a>
+                <a href="products.html" data-i18n="nav.products" class="hover:text-white hover:glow-text transition transform hover:-translate-y-0.5">引擎库</a>
+                <a href="pricing.html" data-i18n="nav.pricing" class="hover:text-white hover:glow-text transition transform hover:-translate-y-0.5">定价</a>
+                <a href="promotions.html" data-i18n="nav.promotions" class="hover:text-white hover:glow-text transition transform hover:-translate-y-0.5">优惠活动</a>
+                <a href="testimonials.html" data-i18n="nav.testimonials" class="hover:text-white hover:glow-text transition transform hover:-translate-y-0.5">客户评价</a>
+                <a href="gallery.html" data-i18n="nav.gallery" class="hover:text-white hover:glow-text transition transform hover:-translate-y-0.5">案例图库</a>
+                <a href="blog.html" data-i18n="nav.blog" class="hover:text-white hover:glow-text transition transform hover:-translate-y-0.5">博客</a>
+            </nav>
 
-            <div class="flex items-center gap-4">
-                <div class="flex items-center gap-1 text-slate-500 bg-slate-100 px-2 py-1 rounded-md border border-slate-200">
+            <div class="flex items-center gap-5 shrink-0">
+                <div class="flex items-center gap-1.5 text-slate-300 bg-slate-900/50 px-3 py-2 rounded border border-slate-700 hover:border-slate-500 transition">
                     <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
-                    <select id="lang-select" class="bg-transparent text-sm font-bold outline-none cursor-pointer">
+                    <select id="lang-select" class="bg-transparent text-sm font-bold outline-none cursor-pointer [&>option]:bg-slate-900 [&>option]:text-white">
                         <option value="zh">中文</option>
                         <option value="en">EN</option>
                         <option value="ja">日本語</option>
                     </select>
                 </div>
-                <button data-i18n="nav.getQuote" class="bg-slate-900 text-white px-6 py-2.5 rounded-md font-semibold hover:bg-slate-800 transition shadow-lg shadow-slate-900/20">
+                <button data-i18n="nav.getQuote" class="bg-white text-slate-950 px-7 py-3 rounded font-black text-[15px] hover:bg-slate-200 transition shadow-[0_0_15px_rgba(255,255,255,0.2)] hover:shadow-[0_0_25px_rgba(255,255,255,0.5)] whitespace-nowrap transform hover:-translate-y-0.5">
                     获取报价
                 </button>
             </div>
         </div>
     </header>
 
-    <section class="pt-40 pb-20 px-6 bg-slate-900 text-white relative overflow-hidden">
-        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
-        <div class="max-w-4xl mx-auto text-center relative z-10">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-semibold mb-6 border border-emerald-500/30">
-                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+    <section class="pt-48 pb-20 px-6 bg-[#0B1121] text-white relative overflow-hidden border-b border-slate-800/50">
+        <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-emerald-600/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
+        <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[100px] pointer-events-none z-0"></div>
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-10 mix-blend-screen z-0"></div>
+        
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 text-sm font-bold mb-8 border border-emerald-500/20 backdrop-blur-sm">
+                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
                 <span data-i18n="hero.tag">专为新加坡中小企业打造的 Agentic AI</span>
             </div>
-            <h1 data-i18n="hero.title" class="text-5xl md:text-6xl font-extrabold leading-tight mb-6">您的 24/7 全能数字员工服务商</h1>
-            <p data-i18n="hero.subtitle" class="text-xl text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed">告别传统软件外包的漫长开发与死板逻辑。我们交付的是开箱即用的业务专家，深度注入行业SOP，明早8点立刻上线接客。</p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <button class="bg-emerald-600 text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-emerald-500 transition shadow-lg shadow-emerald-600/30 flex items-center justify-center gap-2">
+            <h1 data-i18n="hero.title" class="text-6xl md:text-8xl font-extrabold leading-tight mb-8 tracking-tight">您的 24/7 全能数字员工服务商</h1>
+            <p data-i18n="hero.subtitle" class="text-2xl text-slate-400 mb-14 max-w-3xl mx-auto leading-relaxed font-medium">告别传统软件外包的漫长开发与死板逻辑。我们交付的是开箱即用的业务专家，深度注入行业SOP，明早8点立刻上线接客。</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <button class="bg-emerald-500 text-slate-950 px-10 py-5 rounded-lg font-black text-xl hover:bg-emerald-400 transition shadow-[0_0_25px_rgba(16,185,129,0.3)] flex items-center justify-center gap-3 transform hover:-translate-y-1">
                     <span data-i18n="hero.btnTrial">免费测试 7 天</span>
-                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                    <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
                 </button>
-                <button data-i18n="hero.btnCase" class="bg-slate-800 text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-slate-700 border border-slate-700 transition">查看行业案例</button>
-            </div>
-            
-            <div class="mt-16 flex flex-wrap justify-center gap-8 text-slate-400 text-sm font-medium">
-                <div class="flex items-center gap-2"><svg class="w-4 h-4 text-slate-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> <span data-i18n="hero.trust1">PDPA Compliant</span></div>
-                <div class="flex items-center gap-2"><svg class="w-4 h-4 text-slate-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg> <span data-i18n="hero.trust2">100% 数据本地化部署</span></div>
-                <div class="flex items-center gap-2"><svg class="w-4 h-4 text-slate-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg> <span data-i18n="hero.trust3">深度理解本地语境</span></div>
+                <button data-i18n="hero.btnCase" class="bg-slate-800/80 backdrop-blur text-white px-10 py-5 rounded-lg font-bold text-xl hover:bg-slate-700 border border-slate-600 transition transform hover:-translate-y-1">查看行业案例</button>
             </div>
         </div>
     </section>
 
-    <section id="comparison" class="py-24 px-6 bg-white">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 data-i18n="compare.title" class="text-3xl font-extrabold text-slate-900 mb-4">为什么“免费一键部署”是企业最昂贵的陷阱？</h2>
-                <p data-i18n="compare.subtitle" class="text-lg text-slate-600">工具需要人来伺候，而 OmniWorker 直接为您创造利润。</p>
-            </div>
+    <div class="bg-black py-6 border-b border-slate-800 overflow-hidden relative z-20">
+        <div class="relative w-full overflow-hidden flex whitespace-nowrap" style="mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);">
+            <div class="flex items-center animate-scroll w-max hover:[animation-play-state:paused]">
+                <div class="flex items-center gap-20 md:gap-32 px-10">
+                    <a href="https://blockscope.co" target="_blank" class="block transition hover:scale-110 flex-shrink-0 w-56 h-24 flex items-center justify-center"><img src="assets/logo-blockscope.png" alt="BlockScope" class="max-h-full max-w-full object-contain opacity-80 hover:opacity-100"></a>
+                    <a href="https://ethicraft.io" target="_blank" class="block transition hover:scale-110 flex-shrink-0 w-40 h-16 flex items-center justify-center"><img src="assets/logo-ethicraft.png" alt="Ethicraft" class="max-h-full max-w-full object-contain opacity-80 hover:opacity-100"></a>
+                    <a href="https://github.com/OpenClaw" target="_blank" class="block transition hover:scale-110 flex-shrink-0 w-40 h-16 flex items-center justify-center"><img src="assets/logo-openclaw.png" alt="OpenClaw" class="max-h-full max-w-full object-contain opacity-80 hover:opacity-100"></a>
+                    <a href="https://nus.edu.sg" target="_blank" class="block transition hover:scale-110 flex-shrink-0 w-56 h-24 flex items-center justify-center"><img src="assets/logo-nus.png" alt="NUS" class="max-h-full max-w-full object-contain opacity-80 hover:opacity-100"></a>
+                    <a href="https://ntu.edu.sg" target="_blank" class="block transition hover:scale-110 flex-shrink-0 w-40 h-16 flex items-center justify-center"><img src="assets/logo-ntu.png" alt="NTU" class="max-h-full max-w-full object-contain opacity-80 hover:opacity-100"></a>
+                    <a href="#" target="_blank" class="block transition hover:scale-110 flex-shrink-0 w-40 h-16 flex items-center justify-center"><img src="assets/logo-aws.png" alt="AWS" class="max-h-full max-w-full object-contain opacity-80 hover:opacity-100"></a>
+                    <a href="#" target="_blank" class="block transition hover:scale-110 flex-shrink-0 w-56 h-24 flex items-center justify-center"><img src="assets/logo-stripe.png" alt="Stripe" class="max-h-full max-w-full object-contain opacity-80 hover:opacity-100"></a>
+                    <a href="#" target="_blank" class="block transition hover:scale-110 flex-shrink-0 w-56 h-24 flex items-center justify-center"><img src="assets/logo-google.png" alt="Google" class="max-h-full max-w-full object-contain opacity-80 hover:opacity-100"></a>
+                </div>
 
-            <div class="grid md:grid-cols-2 gap-8 text-left">
-                <div class="bg-gray-50 border border-gray-200 rounded-2xl p-10 flex flex-col grayscale opacity-80 hover:grayscale-0 transition duration-500">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center text-left">
-                            <svg class="w-6 h-6 text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="16" height="16" x="4" y="4" rx="2" ry="2"/><rect width="6" height="6" x="9" y="9" rx="1" ry="1"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>
+                <div class="flex items-center gap-20 md:gap-32 px-10">
+                    <a href="https://blockscope.co" target="_blank" class="block transition hover:scale-110 flex-shrink-0 w-56 h-24 flex items-center justify-center"><img src="assets/logo-blockscope.png" alt="BlockScope" class="max-h-full max-w-full object-contain opacity-80 hover:opacity-100"></a>
+                    <a href="https://ethicraft.io" target="_blank" class="block transition hover:scale-110 flex-shrink-0 w-40 h-16 flex items-center justify-center"><img src="assets/logo-ethicraft.png" alt="Ethicraft" class="max-h-full max-w-full object-contain opacity-80 hover:opacity-100"></a>
+                    <a href="https://github.com/OpenClaw" target="_blank" class="block transition hover:scale-110 flex-shrink-0 w-40 h-16 flex items-center justify-center"><img src="assets/logo-openclaw.png" alt="OpenClaw" class="max-h-full max-w-full object-contain opacity-80 hover:opacity-100"></a>
+                    <a href="https://nus.edu.sg" target="_blank" class="block transition hover:scale-110 flex-shrink-0 w-56 h-24 flex items-center justify-center"><img src="assets/logo-nus.png" alt="NUS" class="max-h-full max-w-full object-contain opacity-80 hover:opacity-100"></a>
+                    <a href="https://ntu.edu.sg" target="_blank" class="block transition hover:scale-110 flex-shrink-0 w-40 h-16 flex items-center justify-center"><img src="assets/logo-ntu.png" alt="NTU" class="max-h-full max-w-full object-contain opacity-80 hover:opacity-100"></a>
+                    <a href="#" target="_blank" class="block transition hover:scale-110 flex-shrink-0 w-40 h-16 flex items-center justify-center"><img src="assets/logo-aws.png" alt="AWS" class="max-h-full max-w-full object-contain opacity-80 hover:opacity-100"></a>
+                    <a href="#" target="_blank" class="block transition hover:scale-110 flex-shrink-0 w-56 h-24 flex items-center justify-center"><img src="assets/logo-stripe.png" alt="Stripe" class="max-h-full max-w-full object-contain opacity-80 hover:opacity-100"></a>
+                    <a href="#" target="_blank" class="block transition hover:scale-110 flex-shrink-0 w-56 h-24 flex items-center justify-center"><img src="assets/logo-google.png" alt="Google" class="max-h-full max-w-full object-contain opacity-80 hover:opacity-100"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="comparison" class="py-28 px-6 relative border-t border-slate-800">
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="text-center mb-20">
+                <h2 data-i18n="compare.title" class="text-4xl font-extrabold text-white mb-6">为什么“免费一键部署”是企业最昂贵的陷阱？</h2>
+                <p data-i18n="compare.subtitle" class="text-xl text-slate-400">工具需要人来伺候，而 OmniWorker 直接为您创造利润。</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-10 text-left">
+                <div class="bg-slate-900/80 backdrop-blur-md border border-slate-700/50 rounded-3xl p-12 flex flex-col grayscale opacity-80 hover:grayscale-0 transition duration-500 shadow-lg">
+                    <div class="flex items-center gap-5 mb-8">
+                        <div class="w-14 h-14 bg-slate-800 rounded-xl flex items-center justify-center text-left">
+                            <svg class="w-7 h-7 text-slate-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="16" height="16" x="4" y="4" rx="2" ry="2"/><rect width="6" height="6" x="9" y="9" rx="1" ry="1"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>
                         </div>
-                        <h3 data-i18n="compare.badTitle" class="text-2xl font-bold text-gray-600">传统软件外包 / 开源大模型</h3>
+                        <h3 data-i18n="compare.badTitle" class="text-3xl font-bold text-slate-200">传统软件外包 / 开源大模型</h3>
                     </div>
-                    <ul class="space-y-4 text-gray-500 font-medium flex-grow">
-                        <li class="flex items-start gap-3"><svg class="w-6 h-6 shrink-0 mt-0.5 text-rose-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg> <span data-i18n="compare.bad1">交付毫无业务逻辑的空白系统。</span></li>
-                        <li class="flex items-start gap-3"><svg class="w-6 h-6 shrink-0 mt-0.5 text-rose-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg> <span data-i18n="compare.bad2">需要您亲自懂代码、配置API、画流程图。</span></li>
-                        <li class="flex items-start gap-3"><svg class="w-6 h-6 shrink-0 mt-0.5 text-rose-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg> <span data-i18n="compare.bad3">隐形成本极高，最终变成老板自己的额外工作。</span></li>
-                        <li class="flex items-start gap-3"><svg class="w-6 h-6 shrink-0 mt-0.5 text-rose-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg> <span data-i18n="compare.bad4">遇到退换货纠纷只会说“对不起，我不明白”。</span></li>
+                    <ul class="space-y-5 text-lg text-slate-400 font-medium flex-grow">
+                        <li class="flex items-start gap-4"><svg class="w-7 h-7 shrink-0 mt-0.5 text-rose-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg> <span data-i18n="compare.bad1">交付毫无业务逻辑的空白系统。</span></li>
+                        <li class="flex items-start gap-4"><svg class="w-7 h-7 shrink-0 mt-0.5 text-rose-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg> <span data-i18n="compare.bad2">需要您亲自懂代码、配置API、画流程图。</span></li>
+                        <li class="flex items-start gap-4"><svg class="w-7 h-7 shrink-0 mt-0.5 text-rose-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg> <span data-i18n="compare.bad3">隐形成本极高，最终变成老板自己的额外工作。</span></li>
+                        <li class="flex items-start gap-4"><svg class="w-7 h-7 shrink-0 mt-0.5 text-rose-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg> <span data-i18n="compare.bad4">遇到退换货纠纷只会说“对不起，我不明白”。</span></li>
                     </ul>
                 </div>
 
-                <div class="bg-white border-2 border-slate-900 shadow-2xl shadow-slate-900/10 rounded-2xl p-10 flex flex-col relative overflow-hidden ring-4 ring-slate-900/5">
-                    <div data-i18n="compare.goodBadge" class="absolute top-0 right-0 bg-slate-900 text-white px-4 py-1 rounded-bl-xl font-bold text-sm">The Winner</div>
-                    <div class="flex items-center gap-4 mb-6 text-left">
-                        <div class="w-12 h-12 bg-slate-900 rounded-lg flex items-center justify-center">
-                            <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+                <div class="bg-slate-900/95 backdrop-blur-xl border-[3px] border-emerald-900/50 shadow-[0_20px_50px_-12px_rgba(16,185,129,0.15)] rounded-3xl p-12 flex flex-col relative overflow-hidden hover:-translate-y-2 transition duration-500 z-20">
+                    <div data-i18n="compare.goodBadge" class="absolute top-0 right-0 bg-emerald-900 text-emerald-400 px-6 py-2 rounded-bl-2xl font-bold text-sm tracking-widest uppercase">The Winner</div>
+                    <div class="flex items-center gap-5 mb-8 text-left">
+                        <div class="w-14 h-14 bg-slate-950 rounded-xl flex items-center justify-center shadow-lg shadow-emerald-500/20">
+                            <img src="assets/logo-omniworker.png" alt="Icon" class="w-8 h-8 object-contain filter brightness-0 invert">
                         </div>
-                        <h3 data-i18n="compare.goodTitle" class="text-2xl font-bold text-slate-900">OmniWorker 全能数字员工</h3>
+                        <h3 data-i18n="compare.goodTitle" class="text-3xl font-extrabold text-white">OmniWorker 全能数字员工</h3>
                     </div>
-                    <ul class="space-y-4 text-slate-700 font-medium flex-grow">
-                        <li class="flex items-start gap-3"><svg class="w-6 h-6 text-emerald-600 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span data-i18n="compare.good1">交付开箱即用的业务专家，买来即用。</span></li>
-                        <li class="flex items-start gap-3"><svg class="w-6 h-6 text-emerald-600 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span data-i18n="compare.good2">深度注入行业独家 SOP (电商、冷气、物流等)。</span></li>
-                        <li class="flex items-start gap-3"><svg class="w-6 h-6 text-emerald-600 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span data-i18n="compare.good3">懂销售心理学，能自动安抚客户并挽单。</span></li>
-                        <li class="flex items-start gap-3"><svg class="w-6 h-6 text-emerald-600 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span data-i18n="compare.good4">插电即上线，7x24小时无情绪稳定接客。</span></li>
+                    <ul class="space-y-5 text-lg text-slate-200 font-bold flex-grow">
+                        <li class="flex items-start gap-4"><svg class="w-7 h-7 text-emerald-500 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span data-i18n="compare.good1">交付开箱即用的业务专家，买来即用。</span></li>
+                        <li class="flex items-start gap-4"><svg class="w-7 h-7 text-emerald-500 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span data-i18n="compare.good2">深度注入行业独家 SOP (电商、冷气、物流等)。</span></li>
+                        <li class="flex items-start gap-4"><svg class="w-7 h-7 text-emerald-500 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span data-i18n="compare.good3">懂销售心理学，能自动安抚客户并挽单。</span></li>
+                        <li class="flex items-start gap-4"><svg class="w-7 h-7 text-emerald-500 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span data-i18n="compare.good4">插电即上线，7x24小时无情緒稳定接客。</span></li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="demo" class="py-24 px-6 bg-slate-50 border-t border-slate-200">
-        <div class="max-w-5xl mx-auto">
+    <section id="demo" class="py-28 px-6 border-t border-slate-800 relative">
+        <div class="max-w-5xl mx-auto relative z-10">
             <div class="text-center mb-16">
-                <h2 data-i18n="demo.title" class="text-3xl font-extrabold text-slate-900 mb-4">不仅懂代码，更懂本地市场的“人情世故”</h2>
-                <p data-i18n="demo.subtitle" class="text-lg text-slate-600">观看 OmniWorker 如何在凌晨 2 点完美化解本地客户的愤怒退单。</p>
+                <h2 data-i18n="demo.title" class="text-4xl font-extrabold text-white mb-6">不仅懂代码，更懂本地市场的“人情世故”</h2>
+                <p data-i18n="demo.subtitle" class="text-xl text-slate-400">观看 OmniWorker 如何在凌晨 2 点完美化解本地客户的愤怒退单。</p>
             </div>
 
-            <div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden flex flex-col md:flex-row text-left">
-                <div class="bg-slate-900 text-white p-10 md:w-2/5 flex flex-col justify-center">
-                    <h4 data-i18n="demo.sceneTitle" class="text-xl font-bold mb-4">场景：电商物流延迟客诉</h4>
-                    <p data-i18n="demo.sceneDesc" class="text-slate-300 mb-6">传统机器人的回答通常是冰冷的退款链接。看看我们的数字员工如何用同理心和具体行动来挽回订单。</p>
-                    <button id="demo-btn" onclick="triggerDemo()" class="bg-emerald-600 hover:bg-emerald-500 disabled:bg-slate-700 text-white py-3 px-6 rounded font-bold transition flex items-center justify-center gap-2">
+            <div class="bg-slate-900/90 backdrop-blur-xl rounded-3xl shadow-2xl border border-slate-700/50 overflow-hidden flex flex-col md:flex-row text-left">
+                <div class="bg-slate-950 text-white p-12 md:w-2/5 flex flex-col justify-center relative overflow-hidden">
+                    <div class="absolute -right-20 -top-20 w-48 h-48 bg-emerald-500/10 rounded-full blur-[60px]"></div>
+                    <h4 data-i18n="demo.sceneTitle" class="text-2xl font-bold mb-6 relative z-10">场景：电商物流延迟客诉</h4>
+                    <p data-i18n="demo.sceneDesc" class="text-lg text-slate-400 mb-10 relative z-10">传统机器人的回答通常是冰冷的退款链接。看看我们的数字员工如何用同理心和具体行动来挽回订单。</p>
+                    <button id="demo-btn" onclick="triggerDemo()" class="bg-emerald-500 hover:bg-emerald-400 disabled:bg-slate-800 text-slate-950 py-4 px-6 rounded-lg font-black text-lg transition flex items-center justify-center gap-3 relative z-10 shadow-[0_0_20px_rgba(16,185,129,0.3)]">
                         ▶ 模拟接收客户消息
                     </button>
                 </div>
-                <div class="p-8 md:w-3/5 bg-slate-50 relative min-h-[420px]">
-                    <div class="space-y-6">
-                        
+                
+                <div class="p-10 md:w-3/5 bg-slate-800/50 relative min-h-[450px] flex flex-col justify-end overflow-hidden">
+                    
+                    <div id="demo-idle-state" class="absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-500 z-10">
+                        <div class="w-20 h-20 mb-6 rounded-full bg-slate-900 flex items-center justify-center shadow-inner relative">
+                            <div class="absolute inset-0 rounded-full border-2 border-emerald-500/30 animate-ping"></div>
+                            <div class="absolute inset-[-15px] rounded-full border border-emerald-500/10 animate-ping" style="animation-delay: 0.5s"></div>
+                            <svg class="w-8 h-8 text-emerald-500/80" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                        </div>
+                        <p data-i18n="demo.idleText" class="text-slate-300 font-bold text-lg tracking-wider">系统待机中，等待客户接入...</p>
+                        <p data-i18n="demo.idleSub" class="text-slate-500 text-sm mt-3 font-medium">点击左侧按钮开始实战推演</p>
+                    </div>
+
+                    <div class="space-y-8 relative z-20">
                         <div id="demo-user-msg" class="flex gap-4 opacity-0 transition-opacity duration-500">
-                            <div class="w-10 h-10 rounded-full bg-orange-200 flex items-center justify-center shrink-0">
-                                <span class="font-bold text-orange-700 text-xs uppercase">User</span>
+                            <div class="w-12 h-12 rounded-full bg-orange-900/50 flex items-center justify-center shrink-0 border border-orange-700/50 shadow-lg">
+                                <span class="font-black text-orange-400 text-sm uppercase">User</span>
                             </div>
-                            <div class="bg-white p-4 rounded-2xl rounded-tl-none shadow-sm border border-slate-200 max-w-[85%]">
-                                <p data-i18n="demo.msgUser" class="text-slate-800 font-medium italic">老板，能帮我查下订单吗？等了这么久，物流显示已签收但我什么都没收到。这样的话我要立刻退款！</p>
+                            <div class="bg-slate-800 p-5 rounded-2xl rounded-tl-none shadow-lg border border-slate-700 max-w-[85%]">
+                                <p data-i18n="demo.msgUser" class="text-slate-200 font-medium text-lg italic">老板，能帮我查下订单吗？等了这么久，物流显示已签收但我什么都没收到。这样的话我要立刻退款！</p>
                             </div>
                         </div>
 
                         <div id="demo-ai-thinking" class="flex gap-4 animate-pulse hidden-demo">
-                            <div class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center shrink-0">
-                                <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+                            <div class="w-12 h-12 rounded-full bg-slate-950 flex items-center justify-center shrink-0 shadow-lg">
+                                <img src="assets/logo-omniworker.png" class="w-6 h-6 filter brightness-0 invert" alt="AI">
                             </div>
-                            <div class="bg-slate-200 p-4 rounded-2xl rounded-tr-none w-24 h-10"></div>
+                            <div class="bg-slate-700/50 p-5 rounded-2xl rounded-tr-none w-32 h-12 border border-slate-600/50"></div>
                         </div>
 
-                        <div id="demo-ai-reply" class="flex gap-4 flex-row-reverse opacity-0 transform translate-y-4 transition-all duration-500 hidden-demo">
-                            <div class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center shrink-0">
-                                <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+                        <div id="demo-ai-reply" class="flex gap-4 flex-row-reverse opacity-0 transform translate-y-6 transition-all duration-500 hidden-demo">
+                            <div class="w-12 h-12 rounded-full bg-slate-950 flex items-center justify-center shrink-0 shadow-lg shadow-slate-900/50">
+                                <img src="assets/logo-omniworker.png" class="w-6 h-6 filter brightness-0 invert" alt="AI">
                             </div>
-                            <div class="bg-emerald-50 p-5 rounded-2xl rounded-tr-none shadow-sm border border-emerald-200 max-w-[90%] relative">
-                                <div class="space-y-3">
-                                    <p data-i18n="demo.msgAi1" class="text-slate-800 leading-relaxed">您好！我完全理解您的焦虑，非常抱歉给您带来了困扰。🙏</p>
-                                    <p data-i18n="demo.msgAi2" class="text-slate-800 leading-relaxed">我刚刚跟 Ninja Van 后台核实了。司机提前标记了送达，但会在今晚8点前送到您家门口。我已经在您的账户里补偿了一张 $5 的代金券表示歉意。</p>
-                                    <p data-i18n="demo.msgAi3" class="text-slate-800 font-bold">请放心，如果今晚还没收到，我会立刻为您处理全额退款。您看行吗？</p>
+                            <div class="bg-emerald-900/30 p-6 rounded-2xl rounded-tr-none shadow-lg border border-emerald-800/50 max-w-[90%] relative">
+                                <div class="space-y-4">
+                                    <p data-i18n="demo.msgAi1" class="text-slate-200 text-lg leading-relaxed">您好！我完全理解您的焦虑，非常抱歉给您带来了困扰。🙏</p>
+                                    <p data-i18n="demo.msgAi2" class="text-slate-200 text-lg leading-relaxed">我剛剛跟 Ninja Van 后台核实了。司机提前标记了送达，但会在今晚8点前送到您家门口。我已经在您的账户里补偿了一张 $5 的代金券表示歉意。</p>
+                                    <p data-i18n="demo.msgAi3" class="text-white text-lg font-extrabold">请放心，如果今晚还没收到，我会立刻为您处理全额退款。您看行吗？</p>
                                 </div>
-                                <div class="mt-4 flex items-center gap-1.5 text-xs font-black text-emerald-700 bg-emerald-100 px-2.5 py-1.5 rounded-full inline-flex">
-                                    <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+                                <div class="mt-5 flex items-center gap-2 text-sm font-black text-emerald-400 bg-emerald-950/50 px-3 py-2 rounded-full inline-flex border border-emerald-800">
+                                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
                                     <span data-i18n="demo.saveTag">成功挽回订单 $120.00</span>
                                 </div>
                             </div>
@@ -173,113 +254,367 @@
         </div>
     </section>
 
-    <section id="roi" class="py-24 px-6 bg-white border-t border-slate-100">
-        <div class="max-w-6xl mx-auto">
+    <section id="roi" class="py-28 px-6 border-t border-slate-800 relative">
+        <div class="max-w-6xl mx-auto relative z-10">
             <div class="text-center mb-16">
-                <h2 data-i18n="roi.title" class="text-3xl font-extrabold text-slate-900 mb-4">拒绝黑箱，用财务报表的方式看利润</h2>
-                <p data-i18n="roi.subtitle" class="text-lg text-slate-600">透明的 Tokens 计价与看得见的 ROI。拖动滑块，看看您每个月在流失多少利润。</p>
+                <h2 data-i18n="roi.title" class="text-4xl font-extrabold text-white mb-6">拒绝黑箱，用财务报表的方式看利润</h2>
+                <p data-i18n="roi.subtitle" class="text-xl text-slate-400">透明的 Tokens 计价与看得见的 ROI。拖动滑块，看看您每个月在流失多少利润。</p>
             </div>
 
             <div class="grid lg:grid-cols-12 gap-12 text-left">
-                <div class="lg:col-span-7 bg-slate-50 border border-slate-200 rounded-2xl p-8 lg:p-12">
-                    <h3 class="text-2xl font-bold text-slate-900 mb-8 flex items-center gap-2">
-                        <svg class="text-emerald-600 w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+                <div class="lg:col-span-7 bg-slate-900/90 backdrop-blur-xl border border-slate-700/50 rounded-3xl p-10 lg:p-14 shadow-xl">
+                    <h3 class="text-2xl font-extrabold text-white mb-10 flex items-center gap-3">
+                        <svg class="text-emerald-500 w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
                         <span data-i18n="roi.calcTitle">ROI 利润计算器</span>
                     </h3>
                     
-                    <div class="mb-12">
-                        <label data-i18n="roi.sliderLabel" class="block text-sm font-bold text-slate-700 mb-4">您目前雇佣了多少名常规客服/业务员？ (平均薪资估值: $3,500 SGD/人)</label>
-                        <input id="emp-slider" type="range" min="1" max="20" value="3" class="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-slate-900" oninput="calculateROI()">
-                        <div class="mt-4 flex justify-between text-slate-500 font-medium">
+                    <div class="mb-14">
+                        <label data-i18n="roi.sliderLabel" class="block text-base font-bold text-slate-300 mb-6">您目前雇佣了多少名常规客服/业务员？ (平均薪资估值: $3,500 SGD/人)</label>
+                        <input id="emp-slider" type="range" min="1" max="20" value="3" class="w-full h-4 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-emerald-500" oninput="calculateROI()">
+                        <div class="mt-5 flex justify-between text-slate-500 font-bold text-lg">
                             <span>1 <span data-i18n="roi.unit">人</span></span>
-                            <span class="text-xl font-black text-slate-900"><span id="emp-count">3</span> <span data-i18n="roi.unit">人</span></span>
+                            <span class="text-2xl font-black text-white"><span id="emp-count">3</span> <span data-i18n="roi.unit">人</span></span>
                             <span>20 <span data-i18n="roi.unit">人</span></span>
                         </div>
                     </div>
 
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center p-4 bg-white rounded-lg border border-slate-100">
-                            <span data-i18n="roi.humanCostLabel" class="text-slate-500 font-medium">当前每月人力总成本</span>
-                            <span id="human-cost" class="text-xl font-bold text-slate-400 line-through">$10,500 SGD</span>
+                    <div class="space-y-5">
+                        <div class="flex justify-between items-center p-5 bg-slate-800/50 rounded-xl border border-slate-700/50">
+                            <span data-i18n="roi.humanCostLabel" class="text-slate-400 font-bold text-lg">当前每月人力总成本</span>
+                            <span id="human-cost" class="text-2xl font-black text-slate-500 line-through">$10,500 SGD</span>
                         </div>
-                        <div class="flex justify-between items-center p-4 bg-slate-900 rounded-lg text-white shadow-lg">
-                            <span data-i18n="roi.aiCostLabel" class="font-medium">OmniWorker 替代方案预估</span>
-                            <span class="text-xl font-bold"><span id="ai-cost">$1,950 SGD</span> / <span data-i18n="roi.monthly">月</span></span>
+                        <div class="flex justify-between items-center p-6 bg-slate-950 rounded-xl text-white shadow-2xl border border-slate-800">
+                            <span data-i18n="roi.aiCostLabel" class="font-bold text-lg text-emerald-400">OmniWorker 替代方案预估</span>
+                            <span class="text-2xl font-black"><span id="ai-cost">$1,950 SGD</span> / <span data-i18n="roi.monthly" class="text-lg">月</span></span>
                         </div>
-                        <div class="flex justify-between items-center p-6 bg-emerald-50 border border-emerald-200 rounded-lg mt-4">
+                        <div class="flex justify-between items-center p-8 bg-emerald-900/20 border border-emerald-800/50 rounded-xl mt-6 shadow-inner">
                             <div>
-                                <span data-i18n="roi.saveNet" class="block text-emerald-800 font-bold mb-1">您每月立即节省下来的净利润</span>
-                                <span data-i18n="roi.nonStop" class="text-sm text-emerald-600 font-medium">无请假、无社保、24小时无休</span>
+                                <span data-i18n="roi.saveNet" class="block text-emerald-400 font-black text-xl mb-2">您每月立即节省下来的净利润</span>
+                                <span data-i18n="roi.nonStop" class="text-base text-emerald-600 font-bold">无请假、无社保、24小时无休</span>
                             </div>
-                            <span id="savings" class="text-4xl font-black text-emerald-600">+$8,550</span>
+                            <span id="savings" class="text-5xl font-black text-emerald-500 drop-shadow-sm">+$8,550</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="lg:col-span-5 bg-white border border-slate-200 rounded-2xl p-8 lg:p-10 shadow-xl">
-                    <h3 data-i18n="tokens.title" class="text-xl font-bold text-slate-900 mb-2">多大模型 Tokens 引擎库</h3>
-                    <p data-i18n="tokens.modelDesc" class="text-sm text-slate-500 mb-8">像选空调品牌一样选择引擎，丰俭由人。不被单一厂商绑架。</p>
+                <div class="lg:col-span-5 bg-slate-900/90 backdrop-blur-xl border border-slate-700/50 rounded-3xl p-10 lg:p-12 shadow-2xl hover:-translate-y-2 transition duration-500">
+                    <h3 data-i18n="tokens.title" class="text-2xl font-extrabold text-white mb-3">多大模型 Tokens 引擎库</h3>
+                    <p data-i18n="tokens.modelDesc" class="text-base text-slate-400 mb-10 font-medium">像选空调品牌一样選択引擎，丰俭由人。不被单一厂商绑架。</p>
                     
-                    <div id="models-container" class="space-y-4 mb-8">
+                    <div id="models-container" class="space-y-5 mb-10">
                         </div>
 
-                    <button data-i18n="tokens.btn" class="w-full bg-slate-900 text-white py-4 rounded-lg font-bold text-lg hover:bg-slate-800 transition shadow-lg shadow-slate-900/20">
+                    <button data-i18n="tokens.btn" class="w-full bg-emerald-600 text-white py-5 rounded-xl font-black text-lg hover:bg-emerald-500 transition shadow-[0_10px_20px_-10px_rgba(16,185,129,0.3)]">
                         获取完整部署方案与报价
                     </button>
                     
-                    <div class="mt-6 flex justify-center gap-4">
-                        <svg class="w-5 h-5 text-slate-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
-                        <span data-i18n="tokens.security" class="text-xs font-medium text-slate-400">所有对话均经过 256-bit 银行级加密</span>
+                    <div class="mt-8 flex justify-center gap-4">
+                        <svg class="w-6 h-6 text-emerald-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+                        <span data-i18n="tokens.security" class="text-sm font-bold text-slate-500 uppercase tracking-widest">所有对话均经过 256-bit 银行级加密</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-slate-900 text-slate-400 py-12 px-6 border-t border-slate-800 text-sm">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center gap-2">
-                <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
-                <span data-i18n="footer.company" class="font-bold text-white text-lg">OmniWorker Pte Ltd</span>
+    <section id="testimonials" class="py-28 px-6 border-t border-slate-800 relative overflow-hidden">
+        <div class="max-w-6xl mx-auto relative z-10 mb-16 text-center">
+            <h2 data-i18n="testi.title" class="text-4xl font-extrabold text-white mb-6">客户评价</h2>
+            <p data-i18n="testi.subtitle" class="text-xl text-slate-400">听听我们的客户如何评价数字员工带来的业务增长。</p>
+        </div>
+
+        <div class="relative w-full overflow-hidden flex whitespace-nowrap" style="mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);">
+            <div class="flex items-center animate-scroll-slow w-max hover:[animation-play-state:paused] pb-8 pt-2">
+                <div class="flex items-stretch gap-8 px-4">
+                    <div class="w-[380px] bg-slate-900/80 backdrop-blur-md border border-slate-700/50 rounded-3xl p-8 flex flex-col whitespace-normal shrink-0 shadow-lg hover:-translate-y-1 transition duration-300">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-emerald-900/80 text-emerald-400 border border-emerald-700 flex items-center justify-center font-black text-lg">SL</div>
+                                <div>
+                                    <div class="font-bold text-white text-lg">Sarah Lim</div>
+                                    <div class="text-sm text-slate-500">2026-02-15</div>
+                                </div>
+                            </div>
+                            <svg class="w-6 h-6" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                        </div>
+                        <div class="flex text-amber-400 mb-5 gap-1">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                        <p data-i18n="testi.r1" class="text-slate-300 text-lg leading-relaxed font-medium">OmniWorker 彻底改变了我们的客服体验。AI 能够完美处理深夜的咨询，甚至主动挽单！</p>
+                    </div>
+                    
+                    <div class="w-[380px] bg-slate-900/80 backdrop-blur-md border border-slate-700/50 rounded-3xl p-8 flex flex-col whitespace-normal shrink-0 shadow-lg hover:-translate-y-1 transition duration-300">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-blue-900/80 text-blue-400 border border-blue-700 flex items-center justify-center font-black text-lg">DT</div>
+                                <div>
+                                    <div class="font-bold text-white text-lg">David Tan</div>
+                                    <div class="text-sm text-slate-500">2026-01-22</div>
+                                </div>
+                            </div>
+                            <svg class="w-6 h-6" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                        </div>
+                        <div class="flex text-amber-400 mb-5 gap-1">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                        <p data-i18n="testi.r2" class="text-slate-300 text-lg leading-relaxed font-medium">上线第一个月，我们就节省了近 40% 的人工成本。部署极快，对本地语境的理解非常精准。</p>
+                    </div>
+
+                    <div class="w-[380px] bg-slate-900/80 backdrop-blur-md border border-slate-700/50 rounded-3xl p-8 flex flex-col whitespace-normal shrink-0 shadow-lg hover:-translate-y-1 transition duration-300">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-rose-900/80 text-rose-400 border border-rose-700 flex items-center justify-center font-black text-lg">KW</div>
+                                <div>
+                                    <div class="font-bold text-white text-lg">Kelvin Wong</div>
+                                    <div class="text-sm text-slate-500">2026-03-02</div>
+                                </div>
+                            </div>
+                            <svg class="w-6 h-6" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                        </div>
+                        <div class="flex text-amber-400 mb-5 gap-1">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                        <p data-i18n="testi.r3" class="text-slate-300 text-lg leading-relaxed font-medium">终于有一款真正懂 Singlish 的 AI 了！我们的客户非常喜欢它秒回且准确的解答。</p>
+                    </div>
+
+                    <div class="w-[380px] bg-slate-900/80 backdrop-blur-md border border-slate-700/50 rounded-3xl p-8 flex flex-col whitespace-normal shrink-0 shadow-lg hover:-translate-y-1 transition duration-300">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-purple-900/80 text-purple-400 border border-purple-700 flex items-center justify-center font-black text-lg">AC</div>
+                                <div>
+                                    <div class="font-bold text-white text-lg">Amanda Chen</div>
+                                    <div class="text-sm text-slate-500">2026-03-08</div>
+                                </div>
+                            </div>
+                            <svg class="w-6 h-6" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                        </div>
+                        <div class="flex text-amber-400 mb-5 gap-1">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                        <p data-i18n="testi.r4" class="text-slate-300 text-lg leading-relaxed font-medium">WhatsApp 接入极其丝滑，而且系统自带的退换货SOP帮我们省去了大量麻烦。极度推荐！</p>
+                    </div>
+                </div>
+
+                <div class="flex items-stretch gap-8 px-4">
+                    <div class="w-[380px] bg-slate-900/80 backdrop-blur-md border border-slate-700/50 rounded-3xl p-8 flex flex-col whitespace-normal shrink-0 shadow-lg hover:-translate-y-1 transition duration-300">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-emerald-900/80 text-emerald-400 border border-emerald-700 flex items-center justify-center font-black text-lg">SL</div>
+                                <div>
+                                    <div class="font-bold text-white text-lg">Sarah Lim</div>
+                                    <div class="text-sm text-slate-500">2026-02-15</div>
+                                </div>
+                            </div>
+                            <svg class="w-6 h-6" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                        </div>
+                        <div class="flex text-amber-400 mb-5 gap-1">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                        <p data-i18n="testi.r1" class="text-slate-300 text-lg leading-relaxed font-medium">OmniWorker 彻底改变了我们的客服体验。AI 能够完美处理深夜的咨询，甚至主动挽单！</p>
+                    </div>
+                    <div class="w-[380px] bg-slate-900/80 backdrop-blur-md border border-slate-700/50 rounded-3xl p-8 flex flex-col whitespace-normal shrink-0 shadow-lg hover:-translate-y-1 transition duration-300">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-blue-900/80 text-blue-400 border border-blue-700 flex items-center justify-center font-black text-lg">DT</div>
+                                <div>
+                                    <div class="font-bold text-white text-lg">David Tan</div>
+                                    <div class="text-sm text-slate-500">2026-01-22</div>
+                                </div>
+                            </div>
+                            <svg class="w-6 h-6" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                        </div>
+                        <div class="flex text-amber-400 mb-5 gap-1">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                        <p data-i18n="testi.r2" class="text-slate-300 text-lg leading-relaxed font-medium">上线第一个月，我们就节省了近 40% 的人工成本。部署极快，对本地语境的理解非常精准。</p>
+                    </div>
+                    <div class="w-[380px] bg-slate-900/80 backdrop-blur-md border border-slate-700/50 rounded-3xl p-8 flex flex-col whitespace-normal shrink-0 shadow-lg hover:-translate-y-1 transition duration-300">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-rose-900/80 text-rose-400 border border-rose-700 flex items-center justify-center font-black text-lg">KW</div>
+                                <div>
+                                    <div class="font-bold text-white text-lg">Kelvin Wong</div>
+                                    <div class="text-sm text-slate-500">2026-03-02</div>
+                                </div>
+                            </div>
+                            <svg class="w-6 h-6" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                        </div>
+                        <div class="flex text-amber-400 mb-5 gap-1">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                        <p data-i18n="testi.r3" class="text-slate-300 text-lg leading-relaxed font-medium">终于有一款真正懂 Singlish 的 AI 了！我们的客户非常喜欢它秒回且准确的解答。</p>
+                    </div>
+                    <div class="w-[380px] bg-slate-900/80 backdrop-blur-md border border-slate-700/50 rounded-3xl p-8 flex flex-col whitespace-normal shrink-0 shadow-lg hover:-translate-y-1 transition duration-300">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-purple-900/80 text-purple-400 border border-purple-700 flex items-center justify-center font-black text-lg">AC</div>
+                                <div>
+                                    <div class="font-bold text-white text-lg">Amanda Chen</div>
+                                    <div class="text-sm text-slate-500">2026-03-08</div>
+                                </div>
+                            </div>
+                            <svg class="w-6 h-6" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                        </div>
+                        <div class="flex text-amber-400 mb-5 gap-1">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                        <p data-i18n="testi.r4" class="text-slate-300 text-lg leading-relaxed font-medium">WhatsApp 接入极其丝滑，而且系统自带的退换货SOP帮我们省去了大量麻烦。极度推荐！</p>
+                    </div>
+                </div>
             </div>
-            <div class="flex gap-6 font-medium">
-                <a href="#" data-i18n="footer.privacy" class="hover:text-white transition">隐私政策 (PDPA)</a>
-                <a href="#" data-i18n="footer.terms" class="hover:text-white transition">服务条款</a>
-                <a href="#" data-i18n="footer.policy" class="hover:text-white transition">Tokens 透明政策</a>
+        </div>
+    </section>
+
+    <section class="py-28 px-6 border-t border-slate-800 relative">
+        <div class="max-w-4xl mx-auto relative z-10">
+            <div class="text-center mb-20">
+                <h2 data-i18n="faq.title" class="text-4xl font-extrabold text-white mb-6">常见问题解答 (FAQ)</h2>
+                <p data-i18n="faq.subtitle" class="text-xl text-slate-400">了解 OmniWorker 如何完美融入您的业务流程。</p>
             </div>
-            <div data-i18n="footer.copy">© 2026 OmniWorker. All rights reserved in Singapore.</div>
+            
+            <div class="space-y-5">
+                <details class="group bg-slate-900/80 backdrop-blur border border-slate-700/50 rounded-2xl overflow-hidden cursor-pointer hover:border-slate-600 transition" open>
+                    <summary class="flex items-center justify-between p-8 font-bold text-lg text-white list-none outline-none">
+                        <span data-i18n="faq.q1">部署一个数字员工需要多长时间？</span>
+                        <span class="transition group-open:rotate-180 text-emerald-500"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewBox="0 0 24 24" width="28"><path d="M6 9l6 6 6-6"></path></svg></span>
+                    </summary>
+                    <div data-i18n="faq.a1" class="p-8 pt-0 text-slate-300 text-lg font-medium leading-relaxed">通常情况下，从确认需求到完成行业 SOP 注入和沙盒测试，只需 3-5 个工作日。我们交付的是“交钥匙工程”，软硬件联调完毕后，插电即可上线接客。</div>
+                </details>
+
+                <details class="group bg-slate-900/80 backdrop-blur border border-slate-700/50 rounded-2xl overflow-hidden cursor-pointer hover:border-slate-600 transition">
+                    <summary class="flex items-center justify-between p-8 font-bold text-lg text-white list-none outline-none">
+                        <span data-i18n="faq.q2">我的业务数据和客户隐私安全吗？</span>
+                        <span class="transition group-open:rotate-180 text-slate-400"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewBox="0 0 24 24" width="28"><path d="M6 9l6 6 6-6"></path></svg></span>
+                    </summary>
+                    <div data-i18n="faq.a2" class="p-8 pt-0 text-slate-300 text-lg font-medium leading-relaxed">绝对安全。我们提供 Mac Mini 物理机本地化部署方案，所有核心客户数据保留在您的本地网络内，完全符合新加坡 PDPA（个人数据保护法）的严苛要求。</div>
+                </details>
+
+                <details class="group bg-slate-900/80 backdrop-blur border border-slate-700/50 rounded-2xl overflow-hidden cursor-pointer hover:border-slate-600 transition">
+                    <summary class="flex items-center justify-between p-8 font-bold text-lg text-white list-none outline-none">
+                        <span data-i18n="faq.q3">如果后期平台（如 WhatsApp）更新了，AI 会失效吗？</span>
+                        <span class="transition group-open:rotate-180 text-slate-400"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewBox="0 0 24 24" width="28"><path d="M6 9l6 6 6-6"></path></svg></span>
+                    </summary>
+                    <div data-i18n="faq.a3" class="p-8 pt-0 text-slate-300 text-lg font-medium leading-relaxed">这就是我们收取“月度维保费”的意义。我们拥有云端热更新系统，一旦第三方平台 UI 或接口变更，我们的团队会立刻在后台更新数字员工的操作逻辑，确保您 24/7 业务不中断。</div>
+                </details>
+                
+                <details class="group bg-slate-900/80 backdrop-blur border border-slate-700/50 rounded-2xl overflow-hidden cursor-pointer hover:border-slate-600 transition">
+                    <summary class="flex items-center justify-between p-8 font-bold text-lg text-white list-none outline-none">
+                        <span data-i18n="faq.q4">你们和市面上普通的 ChatGPT 机器人有什么区别？</span>
+                        <span class="transition group-open:rotate-180 text-slate-400"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewBox="0 0 24 24" width="28"><path d="M6 9l6 6 6-6"></path></svg></span>
+                    </summary>
+                    <div data-i18n="faq.a4" class="p-8 pt-0 text-slate-300 text-lg font-medium leading-relaxed">普通机器人只会背诵死板的 FAQ，遇到复杂问题只会说“请联系人工”。而 OmniWorker 拥有执行权限（Agentic AI），它不仅能听懂客户情绪，还能自动登录您的后台查订单、发优惠券、修改排班表，真正做到代替人工处理业务。</div>
+                </details>
+
+                <details class="group bg-slate-900/80 backdrop-blur border border-slate-700/50 rounded-2xl overflow-hidden cursor-pointer hover:border-slate-600 transition">
+                    <summary class="flex items-center justify-between p-8 font-bold text-lg text-white list-none outline-none">
+                        <span data-i18n="faq.q5">支持 Singlish 或者多语言自动回复吗？</span>
+                        <span class="transition group-open:rotate-180 text-slate-400"><svg fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewBox="0 0 24 24" width="28"><path d="M6 9l6 6 6-6"></path></svg></span>
+                    </summary>
+                    <div data-i18n="faq.a5" class="p-8 pt-0 text-slate-300 text-lg font-medium leading-relaxed">完美支持。我们的底层引擎特別针对东南亚语境进行了微调，无论是地道的 Singlish、中文、马来语还是专业行业术语，它都能像本地老员工一样自然沟通，拉近与客户的距离。</div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#050810] text-slate-300 py-20 border-t border-slate-800">
+        <div class="max-w-[1400px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 text-sm">
+            <div class="space-y-8">
+                <div class="flex items-center gap-4">
+                    <img src="assets/logo-omniworker.png" alt="OmniWorker Logo" class="h-12 w-auto object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]">
+                    <span class="text-3xl font-extrabold tracking-tight text-white">OmniWorker<span class="text-emerald-500">.</span></span>
+                </div>
+                <p data-i18n="footer.aboutText" class="text-slate-400 text-base leading-relaxed">致力于为新加坡及亚太地区提供顶级 AI 自动化解决方案。以最低成本，为您雇佣不休假的超级销冠。</p>
+                <div class="flex items-center gap-4 pt-2">
+                    <div class="px-4 py-2 border border-slate-700 bg-slate-900 rounded-lg text-sm font-bold text-slate-300">PDPA Compliant</div>
+                    <div class="px-4 py-2 border border-slate-700 bg-slate-900 rounded-lg text-sm font-bold text-slate-300">256-Bit SSL</div>
+                </div>
+            </div>
+
+            <div>
+                <h4 data-i18n="footer.col2Title" class="text-white font-extrabold text-xl mb-8">快速链接 (Quick Links)</h4>
+                <ul class="space-y-4 font-bold text-base text-slate-400">
+                    <li><a href="index.html" data-i18n="nav.home" class="hover:text-emerald-400 transition">首页</a></li>
+                    <li><a href="services.html" data-i18n="nav.services" class="hover:text-emerald-400 transition">解决方案</a></li>
+                    <li><a href="products.html" data-i18n="nav.products" class="hover:text-emerald-400 transition">引擎库</a></li>
+                    <li><a href="pricing.html" data-i18n="nav.pricing" class="hover:text-emerald-400 transition">定价</a></li>
+                    <li><a href="promotions.html" data-i18n="nav.promotions" class="hover:text-emerald-400 transition">优惠活动</a></li>
+                    <li><a href="blog.html" data-i18n="nav.blog" class="hover:text-emerald-400 transition">博客</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 data-i18n="footer.col3Title" class="text-white font-extrabold text-xl mb-8">生态与集成 (Integrations)</h4>
+                <ul class="space-y-4 font-bold text-base text-slate-400">
+                    <li><a href="#" class="hover:text-emerald-400 transition">WhatsApp API 接入</a></li>
+                    <li><a href="#" class="hover:text-emerald-400 transition">Telegram 机器人生态</a></li>
+                    <li><a href="#" class="hover:text-emerald-400 transition">OpenClaw 框架</a></li>
+                    <li><a href="#" class="hover:text-emerald-400 transition">DeepSeek 企业版</a></li>
+                    <li><a href="#" class="hover:text-emerald-400 transition">Claude 3.5 Sonnet</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 data-i18n="footer.col4Title" class="text-white font-extrabold text-xl mb-8">联系我们 (Contact Us)</h4>
+                <ul class="space-y-6 font-bold text-base text-slate-400">
+                    <li class="flex items-start gap-4 group">
+                        <svg class="w-6 h-6 text-slate-500 shrink-0 mt-0.5 group-hover:text-emerald-500 transition" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        <span>Singapore, Core CBD Area<br>(S) 018956</span>
+                    </li>
+                    <li class="flex items-center gap-4 group">
+                        <svg class="w-6 h-6 text-slate-500 shrink-0 group-hover:text-emerald-500 transition" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        <a href="tel:+6588888888" class="hover:text-white transition">+65 8888 8888</a>
+                    </li>
+                    <li class="flex items-center gap-4 group">
+                        <svg class="w-6 h-6 text-slate-500 shrink-0 group-hover:text-emerald-500 transition" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        <a href="mailto:hello@omniworker.sg" class="hover:text-white transition">hello@omniworker.sg</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="max-w-[1400px] mx-auto px-6 mt-20 pt-10 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-6 text-sm font-bold text-slate-500">
+            <div data-i18n="footer.copy">Copyright © 2026 OmniWorker Pte Ltd. All Rights Reserved.</div>
+            <div class="flex gap-8">
+                <a href="#" class="hover:text-white transition">隐私政策 (Privacy)</a>
+                <a href="#" class="hover:text-white transition">服务条款 (Terms)</a>
+            </div>
         </div>
     </footer>
 
     <script>
-        // --- 1. 语言包与状态 ---
         const translations = {
           zh: {
-            nav: { pain: "痛点对比", demo: "实战演示", pricing: "ROI 与 定价", getQuote: "获取报价" },
-            hero: { tag: "专为新加坡中小企业打造的 Agentic AI", title: "您的 24/7 全能数字员工服务商", subtitle: "告别传统软件外包的漫长开发与死板逻辑。我们交付的是开箱即用的业务专家，深度注入行业SOP，明早8点立刻上线接客。", btnTrial: "免费测试 7 天", btnCase: "查看行业案例", trust1: "PDPA Compliant", trust2: "100% 数据本地化部署", trust3: "深度理解本地语境" },
+            nav: { home: "首页", services: "解决方案", products: "引擎库", pricing: "定价", promotions: "优惠活动", testimonials: "客户评价", gallery: "案例图库", blog: "博客", pain: "痛点对比", demo: "实战演示", getQuote: "获取报价" },
+            hero: { tag: "专为新加坡中小企业打造的 Agentic AI", title: "您的 24/7 全能数字员工服务商", subtitle: "告别传统软件外包的漫长开发与死板逻辑。我们交付的是开箱即用的业务专家，深度注入行业SOP，明早8点立刻上线接客。", btnTrial: "免费测试 7 天", btnCase: "查看行业案例", trust1: "PDPA Compliant", trust2: "100% 数据本地化部署", trust3: "深度理解本地语境", trusted: "深受行业创新者信赖" },
             compare: { title: "为什么“免费一键部署”是企业最昂贵的陷阱？", subtitle: "工具需要人来伺候，而 OmniWorker 直接为您创造利润。", badTitle: "传统软件外包 / 开源大模型", bad1: "交付毫无业务逻辑的空白系统。", bad2: "需要您亲自懂代码、配置API、画流程图。", bad3: "隐形成本极高，最终变成老板自己的额外工作。", bad4: "遇到退换货纠纷只会说“对不起，我不明白”。", goodBadge: "The Winner", goodTitle: "OmniWorker 全能数字员工", good1: "交付开箱即用的业务专家，买来即用。", good2: "深度注入行业独家 SOP (电商、冷气、物流等)。", good3: "懂销售心理学，能自动安抚客户并挽单。", good4: "插电即上线，7x24小时无情绪稳定接客。" },
-            demo: { title: "不仅懂代码，更懂本地市场的“人情世故”", subtitle: "观看 OmniWorker 如何在凌晨 2 点完美化解本地客户的愤怒退单。", sceneTitle: "场景：电商物流延迟客诉", sceneDesc: "传统机器人的回答通常是冰冷的退款链接。看看我们的数字员工如何用同理心和具体行动来挽回订单。", btn0: "▶ 模拟接收客户消息", btn1: "AI 思考中...", btn2: "交互完成", msgUser: "老板，能帮我查下订单吗？等了这么久，物流显示已签收但我什么都没收到。这样的话我要立刻退款！", msgAi1: "您好！我完全理解您的焦虑，非常抱歉给您带来了困扰。🙏", msgAi2: "我刚刚跟 Ninja Van 后台核实了。司机提前标记了送达，但会在今晚8点前送到您家门口。我已经在您的账户里补偿了一张 $5 的代金券表示歉意。", msgAi3: "请放心，如果今晚还没收到，我会立刻为您处理全额退款。您看行吗？", saveTag: "成功挽回订单 $120.00" },
+            demo: { title: "不仅懂代码，更懂本地市场的“人情世故”", subtitle: "观看 OmniWorker 如何在凌晨 2 点完美化解本地客户的愤怒退单。", sceneTitle: "场景：电商物流延迟客诉", sceneDesc: "传统机器人的回答通常是冰冷的退款链接。看看我们的数字员工如何用同理心和具体行动来挽回订单。", btn0: "▶ 模拟接收客户消息", btn1: "AI 思考中...", btn2: "交互完成", msgUser: "老板，能帮我查下订单吗？等了这么久，物流显示已签收但我什么都没收到。这样的话我要立刻退款！", msgAi1: "您好！我完全理解您的焦虑，非常抱歉给您带来了困扰。🙏", msgAi2: "我剛剛跟 Ninja Van 后台核实了。司机提前标记了送达，但会在今晚8点前送到您家门口。我已经在您的账户里补偿了一张 $5 的代金券表示歉意。", msgAi3: "请放心，如果今晚还没收到，我会立刻为您处理全额退款。您看行吗？", saveTag: "成功挽回订单 $120.00", idleText: "系统待机中，等待客户接入...", idleSub: "点击左侧按钮开始实战推演" },
             roi: { title: "拒绝黑箱，用财务报表的方式看利润", subtitle: "透明的 Tokens 计价与看得见的 ROI。拖动滑块，看看您每个月在流失多少利润。", calcTitle: "ROI 利润计算器", sliderLabel: "您目前雇佣了多少名常规客服/业务员？ (平均薪资估值: $3,500 SGD/人)", unit: "人", humanCostLabel: "当前每月人力总成本", aiCostLabel: "OmniWorker 替代方案预估", monthly: "月", saveNet: "您每月立即节省下来的净利润", nonStop: "无请假、无社保、24小时无休" },
-            tokens: { title: "多大模型 Tokens 引擎库", modelDesc: "像选空调品牌一样选择引擎，丰俭由人。不被单一厂商绑架。", in: "入", out: "出", btn: "获取完整部署方案与报价", security: "所有对话均经过 256-bit 银行级加密" },
-            footer: { company: "OmniWorker Pte Ltd", privacy: "隐私政策 (PDPA)", terms: "服务条款", policy: "Tokens 透明政策", copy: "© 2026 OmniWorker. All rights reserved in Singapore." }
+            tokens: { title: "多大模型 Tokens 引擎库", modelDesc: "像选空调品牌一样選択引擎，丰俭由人。不被单一厂商绑架。", in: "入", out: "出", btn: "获取完整部署方案与报价", security: "所有对话均经过 256-bit 银行级加密" },
+            testi: { title: "客户评价", subtitle: "听听我们的客户如何评价数字员工带来的业务增长。", r1: "OmniWorker 彻底改变了我们的客服体验。AI 能够完美处理深夜的咨询，甚至主动挽单！", r2: "上线第一个月，我们就节省了近 40% 的人工成本。部署极快，对本地语境的理解非常精准。", r3: "终于有一款真正懂 Singlish 的 AI 了！我们的客户非常喜欢它秒回且准确的解答。", r4: "WhatsApp 接入极其丝滑，而且系统自带的退换货SOP帮我们省去了大量麻烦。极度推荐！" },
+            faq: { title: "常见问题解答 (FAQ)", subtitle: "了解 OmniWorker 如何完美融入您的业务流程。", q1: "部署一个数字员工需要多长时间？", a1: "通常情况下，从确认需求到完成行业 SOP 注入和沙盒测试，只需 3-5 个工作日。我们交付的是“交钥匙工程”，软硬件联调完毕后，插电即可上线接客。", q2: "我的业务数据和客户隐私安全吗？", a2: "绝对安全。我们提供 Mac Mini 物理机本地化部署方案，所有核心客户数据保留在您的本地网络内，完全符合新加坡 PDPA（个人数据保护法）的严苛要求。", q3: "如果后期平台（如 WhatsApp）更新了，AI 会失效吗？", a3: "这就是我们收取“月度维保费”的意义。我们拥有云端热更新系统，一旦第三方平台 UI 或接口变更，我们的团队会立刻在后台更新数字员工的操作逻辑，确保您 24/7 业务不中断。", q4: "你们和市面上普通的 ChatGPT 机器人有什么区别？", a4: "普通机器人只会背诵死板的 FAQ，遇到复杂问题只会说“请联系人工”。而 OmniWorker 拥有执行权限（Agentic AI），它不仅能听懂客户情绪，还能自动登录您的后台查订单、发优惠券、修改排班表，真正做到代替人工处理业务。", q5: "支持 Singlish 或者多语言自动回复吗？", a5: "完美支持。我们的底层引擎特別针对东南亚语境进行了微调，无论是地道的 Singlish、中文、马来语还是专业行业术语，它都能像本地老员工一样自然沟通，拉近与客户的距离。" },
+            footer: { aboutText: "致力于为新加坡及亚太地区提供顶级 AI 自动化解决方案。以最低成本，为您雇佣不休假的超级销冠。", col2Title: "快速链接 (Quick Links)", col3Title: "生态与集成 (Integrations)", col4Title: "联系我们 (Contact Us)", copy: "Copyright © 2026 OmniWorker Pte Ltd. All Rights Reserved." }
           },
           en: {
-            nav: { pain: "Pain Points", demo: "Live Demo", pricing: "Pricing & ROI", getQuote: "Get Quote" },
-            hero: { tag: "Agentic AI Built for SG SMEs", title: "Your 24/7 All-in-One Digital Worker", subtitle: "Skip the endless software dev cycle. We deliver ready-to-work AI agents infused with your business SOPs. Online tomorrow at 8 AM.", btnTrial: "Free 7-Day Trial", btnCase: "View Industry Cases", trust1: "PDPA Compliant", trust2: "100% Local Data Deployment", trust3: "Native Singlish Understanding" },
+            nav: { home: "Home", services: "Services", products: "Products", pricing: "Pricing", promotions: "Promotions", testimonials: "Testimonials", gallery: "Gallery", blog: "Blog", pain: "Pain Points", demo: "Live Demo", getQuote: "Get Quote" },
+            hero: { tag: "Agentic AI Built for SG SMEs", title: "Your 24/7 All-in-One Digital Worker", subtitle: "Skip the endless software dev cycle. We deliver ready-to-work AI agents infused with your business SOPs. Online tomorrow at 8 AM.", btnTrial: "Free 7-Day Trial", btnCase: "View Industry Cases", trust1: "PDPA Compliant", trust2: "100% Local Data Deployment", trust3: "Native Singlish Understanding", trusted: "Trusted by industry innovators" },
             compare: { title: "Why 'Free 1-Click Deploy' is your most expensive trap?", subtitle: "Tools require babysitting. OmniWorker directly generates profit.", badTitle: "Traditional Outsourcing / LLMs", bad1: "Delivers a blank system with zero business logic.", bad2: "Requires you to write code and draw workflows.", bad3: "High hidden costs; becomes an extra job for you.", bad4: "Only says 'Sorry, I don't understand' during disputes.", goodBadge: "The Winner", goodTitle: "OmniWorker Digital Employee", good1: "Ready-to-use business expert from day one.", good2: "Deeply injected with exclusive industry SOPs.", good3: "Understands sales psychology to soothe clients.", good4: "Plug-and-play, handles clients 24/7 without burnout." },
-            demo: { title: "Masters SG Nuance", subtitle: "Watch how OmniWorker perfectly defuses an angry local customer at 2 AM.", sceneTitle: "Scenario: E-commerce Logistics Delay", sceneDesc: "See how our digital employee uses empathy and action to save the order.", btn0: "▶ Simulate Singlish Message", btn1: "AI Thinking...", btn2: "Interaction Complete", msgUser: "Eh boss, can check my order anot? Waited so long leh, tracking say delivered but I never get anything. If liddat I want refund now!", msgAi1: "Hi there! I completely understand your frustration. So sorry for the confusion leh. 🙏", msgAi2: "I just checked our backend with Ninja Van. The driver marked it delivered early but will drop it at your doorstep before 8 PM tonight. I've added a $5 voucher to your account for the trouble.", msgAi3: "Please don't worry, if it's not there by tonight, I will process the full refund for you immediately. Can?", saveTag: "Saved $120.00 order" },
+            demo: { title: "Masters SG Nuance", subtitle: "Watch how OmniWorker perfectly defuses an angry local customer at 2 AM.", sceneTitle: "Scenario: E-commerce Logistics Delay", sceneDesc: "See how our digital employee uses empathy and action to save the order.", btn0: "▶ Simulate Singlish Message", btn1: "AI Thinking...", btn2: "Interaction Complete", msgUser: "Eh boss, can check my order anot? Waited so long leh, tracking say delivered but I never get anything. If liddat I want refund now!", msgAi1: "Hi there! I completely understand your frustration. So sorry for the confusion leh. 🙏", msgAi2: "I just checked our backend with Ninja Van. The driver marked it delivered early but will drop it at your doorstep before 8 PM tonight. I've added a $5 voucher to your account for the trouble.", msgAi3: "Please don't worry, if it's not there by tonight, I will process the full refund for you immediately. Can?", saveTag: "Saved $120.00 order", idleText: "System standby. Waiting for connection...", idleSub: "Click the button to start the simulation" },
             roi: { title: "Pure Financial ROI", subtitle: "Slide to see how much profit you're losing every month.", calcTitle: "ROI Profit Calculator", sliderLabel: "Number of staff? ($3,500 SGD/pax)", unit: "Pax", humanCostLabel: "Current Monthly Human Cost", aiCostLabel: "OmniWorker Alternative Estimate", monthly: "mo", saveNet: "Net Profit You Save Monthly", nonStop: "No leaves, no CPF, 24/7 non-stop" },
             tokens: { title: "Multi-Model Engine Library", modelDesc: "Select the best engine for your budget. No vendor lock-in.", in: "In", out: "Out", btn: "Get Quote & Deployment Plan", security: "256-bit bank-level encryption" },
-            footer: { company: "OmniWorker Pte Ltd", privacy: "Privacy Policy", terms: "Terms", policy: "Tokens Policy", copy: "© 2026 OmniWorker. All rights reserved." }
+            testi: { title: "Customer Reviews", subtitle: "Hear how our digital employees are driving growth for businesses.", r1: "OmniWorker completely transformed our customer service. The AI handles late-night queries perfectly and even saves dropped orders!", r2: "We reduced our overhead by nearly 40% in the first month. Deployment was incredibly fast and local context is spot on.", r3: "Finally, an AI that truly understands Singlish! Our customers love the instant and accurate responses.", r4: "The WhatsApp integration is flawless. The built-in SOPs for returns saved us so much trouble. Highly recommended!" },
+            faq: { title: "Frequently Asked Questions", subtitle: "Learn how OmniWorker fits perfectly into your operations.", q1: "How long does deployment take?", a1: "Typically 3-5 business days from requirements to live deployment. It's a turnkey solution.", q2: "Is my business data safe?", a2: "Absolutely. We offer on-premise Mac Mini deployments where your core data stays local, fully compliant with SG PDPA.", q3: "What happens if WhatsApp updates its platform?", a3: "That's exactly what our monthly retainer covers. We maintain over-the-air (OTA) updates to handle any UI or API changes.", q4: "How is this different from regular ChatGPT?", a4: "Regular bots just read FAQs. OmniWorker has execution rights (Agentic AI) to check your backend, issue vouchers, and solve problems.", q5: "Does it support Singlish?", a5: "Yes, our engines are fine-tuned for the SEA context and communicate naturally in Singlish, Mandarin, Malay, and industry jargon." },
+            footer: { aboutText: "Providing top-tier AI automation for SG. Hire a superstar employee who never sleeps.", col2Title: "Quick Links", col3Title: "Integrations", col4Title: "Contact Us", copy: "Copyright © 2026 OmniWorker Pte Ltd. All Rights Reserved." }
           },
           ja: {
-            nav: { pain: "課題の比較", demo: "デモを見る", pricing: "料金とROI", getQuote: "見積もり取得" },
-            hero: { tag: "シンガポール中小企業向け Agentic AI", title: "24時間365日稼働のデジタルワーカー", subtitle: "終わりのないソフトウェア開発サイクルからの脱却。お客様の業務SOPを組み込んだ、即戦力のAIエージェントを提供します。明日の朝8時には稼働開始。", btnTrial: "7日間無料トライアル", btnCase: "導入事例を見る", trust1: "PDPA 準拠", trust2: "100% ローカルデータ展開", trust3: "現地のニュアンスを深く理解" },
+            nav: { home: "ホーム", services: "サービス", products: "製品", pricing: "料金体系", promotions: "プロモーション", testimonials: "お客様の声", gallery: "ギャラリー", blog: "ブログ", pain: "課題の比較", demo: "デモを見る", getQuote: "見積もり取得" },
+            hero: { tag: "シンガポール中小企業向け Agentic AI", title: "24時間365日稼働のデジタルワーカー", subtitle: "終わりのないソフトウェア開発サイクルからの脱却。お客様の業務SOPを組み込んだ、即戦力のAIエージェントを提供します。明日の朝8時には稼働開始。", btnTrial: "7日間無料トライアル", btnCase: "導入事例を見る", trust1: "PDPA 準拠", trust2: "100% ローカルデータ展開", trust3: "現地のニュアンスを深く理解", trusted: "業界のイノベーターに信頼されています" },
             compare: { title: "なぜ「無料ワンクリック展開」が最も高くつく罠なのか？", subtitle: "ツールは世話が必要ですが、OmniWorkerは直接利益を生み出します。", badTitle: "従来の外注 / オープンソースLLM", bad1: "業務ロジックが全くない空のシステムを納品。", bad2: "コードの理解、API設定、ワークフロー作成を自律的に行う必要あり。", bad3: "隠れたコストが膨大で、最終的に経営者の追加業務になる。", bad4: "返金トラブルの際は理解できませんとしか言わない。", goodBadge: "勝者", goodTitle: "OmniWorker 全能デジタルワーカー", good1: "初日から即戦力となるビジネスの専門家を納品。", good2: "業界独自のSOP（EC、設備保守など）を深く注入。", good3: "営業心理学を理解し、顧客をなだめて注文を救済する。", good4: "感情のブレなく24時間365日、安定した接客。" },
-            demo: { title: "現地の「人間関係」も理解", subtitle: "午前2時の怒る現地顧客のクレームを、OmniWorkerがどう解決するかをご覧ください。", sceneTitle: "シナリオ：ECサイトの配送遅延クレーム", sceneDesc: "従来のボットは冷たいリンクを渡すだけです。当社のデジタルワーカーが注文を救うかをご覧ください。", btn0: "▶ 顧客メッセージをシミュレート", btn1: "AI 思考中...", btn2: "対話完了", msgUser: "注文の確認をお願いします。配達完了になっているのに届いていません。今すぐ返金してください！", msgAi1: "こんにちは！ご不満はよくわかります。ご不便をおかけして本当に申し訳ありません。🙏", msgAi2: "配送業者に確認したところ、ドライバーが誤って早く完了処理をしてしまいましたが、今夜8時までにはお届けできます。お詫びに5ドルのクーポンを発行しました。", msgAi3: "もし今夜届かなければ、すぐに全額返金いたします。いかがでしょうか？", saveTag: "$120.00の注文を救済成功" },
+            demo: { title: "現地の「人間関係」も理解", subtitle: "午前2時の怒る現地顧客のクレームを、OmniWorkerがどう解決するかをご覧ください。", sceneTitle: "シナリオ：ECサイトの配送遅延クレーム", sceneDesc: "従来のボットは冷たいリンクを渡すだけです。当社のデジタルワーカーが注文を救うかをご覧ください。", btn0: "▶ 顧客メッセージをシミュレート", btn1: "AI 思考中...", btn2: "対話完了", msgUser: "注文の確認をお願いします。配達完了になっているのに届いていません。今すぐ返金してください！", msgAi1: "こんにちは！ご不満はよくわかります。ご不便をおかけして本当に申し訳ありません。🙏", msgAi2: "配送業者に確認したところ、ドライバーが誤って早く完了処理をしてしまいましたが、今夜8時までにはお届けできます。お詫びに5ドルのクーポンを発行しました。", msgAi3: "もし今夜届かなければ、すぐに全額返金いたします。いかがでしょうか？", saveTag: "$120.00の注文を救済成功", idleText: "システム待機中。接続を待っています...", idleSub: "ボタンをクリックして開始します" },
             roi: { title: "純粋なROI", subtitle: "スライダーを動かして、毎月どれだけの利益を逃しているか確認してください。", calcTitle: "ROI 利益計算機", sliderLabel: "雇用人数？（平均給与 $3,500 SGD/月）", unit: "名", humanCostLabel: "現在の人的コスト", aiCostLabel: "OmniWorker 推定コスト", monthly: "月", saveNet: "毎月節約できる純利益", nonStop: "24時間無休、休暇なし" },
             tokens: { title: "モデルライブラリ", modelDesc: "予算に合わせて最適なエンジンを選択。タスクに応じていつでも切り替え可能です。", in: "入", out: "出", btn: "導入プランと見積もりを取得", security: "256ビットの銀行レベルの暗号化" },
-            footer: { company: "OmniWorker Pte Ltd", privacy: "プライバシーポリシー", terms: "利用規約", policy: "トークンポリシー", copy: "© 2026 OmniWorker. All rights reserved." }
+            testi: { title: "お客様の声", subtitle: "デジタルワーカーがどのようにお客様のビジネス成長を促進しているかをご覧ください。", r1: "OmniWorkerは当社のカスタマーサービスを完全に変革しました。AIは深夜の問い合わせを完璧に処理し、注文の救済も行います！", r2: "導入最初の月に人件費を約40％削減できました。展開は非常に速く、現地のニュアンスも完璧です。", r3: "ついにシングリッシュを本当に理解するAIが登場しました！お客様も即座で正確な対応を気に入っています。", r4: "WhatsAppの統合は完璧です。返品対応のSOPが組み込まれているため、非常に助かっています。強くお勧めします！" },
+            faq: { title: "よくある質問 (FAQ)", subtitle: "OmniWorker が業務プロセスにどのように適合するかをご確認ください。", q1: "導入にはどのくらい時間がかかりますか？", a1: "要件確認からSOPの注入、テスト完了まで通常3〜5営業日です。", q2: "ビジネスデータと顧客のプライバシーは安全ですか？", a2: "完全に安全です。Mac Miniを使用したローカル導入プランをご用意しております。", q3: "プラットフォームが更新された場合、AIは機能しなくなりますか？", a3: "自動更新システムにより、サードパーティのUIやAPIが変更された場合でも、当社のチームがすぐに操作ロジックを更新します。", q4: "通常のChatGPTとの違いは何ですか？", a4: "OmniWorker は実行権限を持ち、人間のように実際の業務処理を行うことができます。", q5: "多言語に対応していますか？", a5: "はい、シングリッシュ、中国語、マレー語、専門用語にも対応しています。" },
+            footer: { aboutText: "シンガポールのためのトップクラスのAI自動化。", col2Title: "クイックリンク", col3Title: "連携機能", col4Title: "お問い合わせ", copy: "Copyright © 2026 OmniWorker Pte Ltd. All Rights Reserved." }
           }
         };
 
@@ -291,9 +626,8 @@
 
         let currentLng = 'zh';
         let selectedModelId = 'claude';
-        let demoState = 0; // 0: init, 1: thinking, 2: done
+        let demoState = 0;
 
-        // --- 2. 核心功能函数 ---
         function t(path) {
             const keys = path.split('.');
             let current = translations[currentLng];
@@ -310,7 +644,7 @@
                 el.innerText = t(key);
             });
             updateDemoBtnText();
-            renderModels(); // 重新渲染模型列表以更新多语言的"入"和"出"
+            renderModels();
         }
 
         function calculateROI() {
@@ -325,7 +659,6 @@
             document.getElementById('savings').innerText = `+$${savings.toLocaleString()}`;
         }
 
-        // --- 3. Demo 交互逻辑 ---
         function updateDemoBtnText() {
             const btn = document.getElementById('demo-btn');
             if(demoState === 0) btn.innerText = t('demo.btn0');
@@ -337,36 +670,39 @@
             if (demoState !== 0) return;
             
             const btn = document.getElementById('demo-btn');
+            const idleState = document.getElementById('demo-idle-state');
             const step1 = document.getElementById('demo-user-msg');
             const step2 = document.getElementById('demo-ai-thinking');
             const step3 = document.getElementById('demo-ai-reply');
 
             demoState = 1;
             btn.disabled = true;
-            btn.classList.add('bg-slate-700');
-            btn.classList.remove('bg-emerald-600', 'hover:bg-emerald-500');
+            btn.classList.add('bg-slate-800');
+            btn.classList.remove('bg-emerald-500', 'hover:bg-emerald-400');
             updateDemoBtnText();
 
-            // 显示用户消息
-            step1.classList.remove('opacity-0');
-            step1.classList.add('opacity-100');
+            // 淡出待机状态
+            idleState.classList.add('opacity-0', 'pointer-events-none');
+
+            // 稍微延迟后显示用户消息，显得更自然
+            setTimeout(() => {
+                step1.classList.remove('opacity-0');
+                step1.classList.add('opacity-100');
+            }, 400);
             
-            // 显示思考动画
             setTimeout(() => {
                 step2.classList.remove('hidden-demo');
-            }, 300);
+            }, 700);
 
-            // 显示最终回复
             setTimeout(() => {
                 demoState = 2;
                 updateDemoBtnText();
                 step2.classList.add('hidden-demo');
-                step3.classList.remove('hidden-demo', 'opacity-0', 'translate-y-4');
+                step3.classList.remove('hidden-demo', 'opacity-0', 'translate-y-6');
                 step3.classList.add('opacity-100', 'translate-y-0');
-            }, 1800);
+            }, 2200);
         }
 
-        // --- 4. Tokens 模型选择渲染 ---
         function selectModel(id) {
             selectedModelId = id;
             renderModels();
@@ -378,24 +714,24 @@
             
             tokenModels.forEach(model => {
                 const isSelected = model.id === selectedModelId;
-                const borderClass = isSelected ? 'border-slate-900 bg-slate-50' : 'border-slate-100 hover:border-slate-300';
+                const borderClass = isSelected ? 'border-emerald-500 bg-emerald-900/30 shadow-md transform scale-[1.02]' : 'border-slate-700/50 bg-slate-800/50 hover:border-emerald-500/50';
+                const textClass = isSelected ? 'text-white' : 'text-slate-300';
                 
                 const html = `
-                <div onclick="selectModel('${model.id}')" class="cursor-pointer p-4 rounded-xl border-2 transition-all ${borderClass}">
-                    <div class="flex justify-between items-center mb-1">
-                        <span class="font-bold text-slate-900">${model.name}</span>
-                        ${isSelected ? '<svg class="w-5 h-5 text-slate-900" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>' : ''}
+                <div onclick="selectModel('${model.id}')" class="cursor-pointer p-6 rounded-2xl border-2 transition-all duration-300 ${borderClass}">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="font-extrabold text-xl ${textClass}">${model.name}</span>
+                        ${isSelected ? '<svg class="w-7 h-7 text-emerald-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>' : ''}
                     </div>
-                    <div class="flex gap-4 text-xs font-semibold">
-                        <span class="bg-slate-200 text-slate-700 px-2 py-1 rounded">${t('tokens.in')}: $${model.priceIn.toFixed(2)}/1M</span>
-                        <span class="bg-slate-200 text-slate-700 px-2 py-1 rounded">${t('tokens.out')}: $${model.priceOut.toFixed(2)}/1M</span>
+                    <div class="flex gap-4 text-sm font-bold mt-2">
+                        <span class="bg-slate-900/50 text-slate-400 px-3 py-1.5 rounded-lg">${t('tokens.in')}: $${model.priceIn.toFixed(2)}/1M</span>
+                        <span class="bg-slate-900/50 text-slate-400 px-3 py-1.5 rounded-lg">${t('tokens.out')}: $${model.priceOut.toFixed(2)}/1M</span>
                     </div>
                 </div>`;
                 container.innerHTML += html;
             });
         }
 
-        // --- 初始化绑定 ---
         document.getElementById('lang-select').addEventListener('change', (e) => {
             currentLng = e.target.value;
             updateTranslations();
